@@ -14,8 +14,8 @@ PlayerEntity::PlayerEntity()
 	, pText(nullptr)
 	, vPlayerVectorDirection()
 	, eItem(ItemTypes::None)
-	, iPreviousState(Idle)
-	, iCurrentState(Idle)
+	, iPreviousState(Waiting)
+	, iCurrentState(Waiting)
 	, fVelocity(0.0f)
 	, fMove(0.0f)
 	, fUpDownMove(0.0f)
@@ -31,8 +31,8 @@ PlayerEntity::PlayerEntity(const char *className, const char *spriteName, bool b
 	, pText(nullptr)
 	, vPlayerVectorDirection()
 	, eItem(ItemTypes::None)
-	, iPreviousState(Idle)
-	, iCurrentState(Idle)
+	, iPreviousState(Waiting)
+	, iCurrentState(Waiting)
 	, fVelocity(0.0f)
 	, fMove(0.0f)
 	, fUpDownMove(0.0f)
@@ -100,7 +100,7 @@ void PlayerEntity::Teleport(const b2Vec2 &position)
 
 	fMove= 0;
 	fUpDownMove= 0;
-	this->SetState(Idle);
+	this->SetState(Waiting);
 
 	gSoundManager->Play(SND_TELEPORT);
 }
@@ -136,7 +136,7 @@ void PlayerEntity::Update(f32 dt)
 			{
 				this->bIsInputEnabled = true;
 				this->StopPlayerMovement();
-				SetState(Idle);
+				SetState(Waiting);
 				pText->SetVisible(false);
 			}
 		}
@@ -160,7 +160,7 @@ void PlayerEntity::Update(f32 dt)
 	if (iCurrentState == iPreviousState)
 		return;
 
-	if (iCurrentState == Run)
+	if (iCurrentState == Runing)
 	{
 		pSprite->SetAnimation("Run");
 	}
@@ -170,86 +170,6 @@ void PlayerEntity::Update(f32 dt)
 	}
 
 	iPreviousState = iCurrentState;
-}
-
-bool PlayerEntity::OnInputKeyboardPress(const EventInputKeyboard *ev)
-{
-	if (this->bIsActive && this->bIsInputEnabled)
-	{
-		Key k = ev->GetKey();
-
-//		b2Vec2 vel = pBody->GetLinearVelocity();
-
-		if (k == eKey::Up && iCurrentState != Jump)
-		{
-			SetState(Run);
-			fUpDownMove = -1;
-		}
-
-		if (k == eKey::Left)
-		{
-			SetState(Run);
-			fMove = -1;
-		}
-
-		if (k == eKey::Right)
-		{
-			SetState(Run);
-			fMove = 1;
-		}
-
-		if (k == eKey::Down)
-		{
-			SetState(Run);
-			fUpDownMove = 1;
-		}
-	}
-
-	return true;
-}
-
-bool PlayerEntity::OnInputKeyboardRelease(const EventInputKeyboard *ev)
-{
-	if (this->bIsActive && this->bIsInputEnabled)
-	{
-		Key k = ev->GetKey();
-
-		b2Vec2 vel = pBody->GetLinearVelocity();
-		vel.x = 0;
-		vel.y = 0;
-
-		// Remove the directions
-		if (k == eKey::Up|| k == eKey::W)
-		{
-			pBody->SetLinearVelocity(vel);
-			fUpDownMove = 0;
-		}
-
-		if (k == eKey::Left|| k == eKey::A)
-		{
-			pBody->SetLinearVelocity(vel);
-			fMove = 0;
-		}
-
-		if (k == eKey::Right|| k == eKey::D)
-		{
-			pBody->SetLinearVelocity(vel);
-			fMove = 0;
-		}
-
-		if (k == eKey::Down|| k == eKey::S)
-		{
-			pBody->SetLinearVelocity(vel);
-			fUpDownMove = 0;
-		}
-
-		if (fUpDownMove == 0 && fMove == 0)
-		{
-			SetState(Idle);
-		}
-	}
-
-	return true;
 }
 
 void PlayerEntity::SetItem(ItemTypes::Enum item)
@@ -287,6 +207,11 @@ void PlayerEntity::StopPlayerMovement()
 	pBody->SetLinearVelocity(vel);
 	fUpDownMove = 0;
 	fMove = 0;
+}
+
+void PlayerEntity::Attack()
+{
+	Log("%s: Attack", this->GetName().c_str());
 }
 
 bool PlayerEntity::GetIsActive()

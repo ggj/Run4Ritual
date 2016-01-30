@@ -31,28 +31,34 @@ bool Player3Entity::OnInputKeyboardPress(const EventInputKeyboard *ev)
 
 //		b2Vec2 vel = pBody->GetLinearVelocity();
 
-		if (k == eKey::W && iCurrentState != Jump)
+		if (k == eKey::W)
 		{
-			SetState(Run);
+			SetState(Runing);
 			fUpDownMove = -1;
 		}
 
 		if (k == eKey::A)
 		{
-			SetState(Run);
+			SetState(Runing);
 			fMove = -1;
 		}
 
 		if (k == eKey::D)
 		{
-			SetState(Run);
+			SetState(Runing);
 			fMove = 1;
 		}
 
 		if (k == eKey::S)
 		{
-			SetState(Run);
+			SetState(Runing);
 			fUpDownMove = 1;
+		}
+
+		if(k == eKey::E)
+		{
+			SetState(Attacking);
+			Attack();
 		}
 	}
 
@@ -96,7 +102,7 @@ bool Player3Entity::OnInputKeyboardRelease(const EventInputKeyboard *ev)
 
 		if (fUpDownMove == 0 && fMove == 0)
 		{
-			SetState(Idle);
+			SetState(Waiting);
 		}
 	}
 

@@ -29,12 +29,6 @@ class PlayerEntity: public SpriteEntity,
 		void Load(MetadataObject &metadata, SceneNode *sprites);
 		void Update(f32 dt);
 
-		// IEventInputKeyboardListener
-		bool OnInputKeyboardPress(const EventInputKeyboard *ev) override;
-
-		// IEventInputKeyboardListener
-		bool OnInputKeyboardRelease(const EventInputKeyboard *ev) override;
-
 		void OnCollision(const CollisionEvent &event);
 
 		vec3 GetPosition();
@@ -49,7 +43,7 @@ class PlayerEntity: public SpriteEntity,
 		void OnCollect(ItemTypes::Enum item, u32 amount);
 
 		void StopPlayerMovement();
-		void ChangePlayer();
+		void Attack();
 
 		void SetIsActive(bool isActive);
 		bool GetIsActive();
@@ -118,7 +112,7 @@ class PlayerEntity: public SpriteEntity,
 
 		ItemTypes::Enum eItem;
 
-		enum eAnimationStates {Idle = 0, Run = 1, Jump = 2, Land = 3};
+		enum eAnimationStates {Waiting = 0, Runing = 1, Attacking = 2};
 		s32 iPreviousState;
 		s32 iCurrentState;
 
