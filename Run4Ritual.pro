@@ -92,13 +92,10 @@ OTHER_FILES_SCENE = \
 OTHER_FILES_TEXTURE = \
 #Textures
 	resources/textures/rocket_invader.png \
-	resources/textures/realist_player_idle_frame1.png \
 	resources/textures/realist_player_run_frame2.png \
 	resources/textures/realist_player_run_frame1.png \
-	resources/textures/pessimist_player_idle_frame1.png \
 	resources/textures/pessimist_player_run_frame2.png \
 	resources/textures/pessimist_player_run_frame1.png \
-	resources/textures/optimist_player_idle_frame1.png \
 	resources/textures/optimist_player_run_frame2.png \
 	resources/textures/optimist_player_run_frame1.png \
 	resources/textures/heart.png \
@@ -119,6 +116,19 @@ OTHER_FILES_TEXTURE = \
 	resources/textures/pessimist_enemy_tileset.png \
 	resources/textures/realist_enemy_tileset.png \
 	resources/textures/optimist_enemy_tileset.png \
+	resources/textures/archer_1.png \
+	resources/textures/archer_2.png \
+	resources/textures/archer_3.png \
+	resources/textures/archer_4.png \
+	resources/textures/barbarian_m_1.png \
+	resources/textures/barbarian_m_2.png \
+	resources/textures/barbarian_m_3.png \
+	resources/textures/barbarian_m_4.png \
+	resources/textures/knight_1.png \
+	resources/textures/knight_2.png \
+	resources/textures/knight_3.png \
+	resources/textures/knight_4.png \
+
 
 #Gui
 OTHER_FILES_GUI_STYLE = \
