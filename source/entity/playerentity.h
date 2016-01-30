@@ -11,9 +11,10 @@ namespace ItemTypes
 	{
 		None,
 		Text,
-		HealthPotion,
-		StaminaPotion,
-		Necronomicon
+		CrystalBall,
+		RedSkull,
+		Necronomicon,
+		Amulet
 	};
 }
 
@@ -81,6 +82,22 @@ class PlayerEntity: public SpriteEntity,
 		void SetStaminaTotal(u32);
 		void RemoveStaminaTotal();
 
+		//--
+
+		bool IsAmulet() const;
+		void SetAmulet(bool);
+
+		bool IsNecronomicon() const;
+		void SetNecronomicon(bool);
+
+		bool IsRedSkull() const;
+		void SetRedSkull(bool);
+
+		bool IsCrystalBall() const;
+		void SetCrystalBall(bool);
+
+		//--
+
 		void Talk();
 		void Mute();
 		u32 GiveKey();
@@ -102,6 +119,10 @@ class PlayerEntity: public SpriteEntity,
 			u32 iStamina;
 			u32 iStaminaTotal;
 			u32 iKey;
+			bool bAmulet;
+			bool bNecronomicon;
+			bool bRedSkull;
+			bool bCrystalBall;
 			bool bGameOver;
 		} sPlayer;
 

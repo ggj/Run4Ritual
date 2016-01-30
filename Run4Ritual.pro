@@ -6,7 +6,6 @@ SOURCES += source/main.cpp \
 	source/entity/entity.cpp \
 	source/entity/spriteentity.cpp \
 	source/entity/itementity.cpp \
-	source/entity/heartentity.cpp \
 	source/entity/triggerentity.cpp \
 	source/entity/deathentity.cpp \
 	source/entity/teleportentity.cpp \
@@ -25,14 +24,15 @@ SOURCES += source/main.cpp \
 	source/util/triggercounter.cpp \
 	source/util/collisionsensor.cpp \
 	source/entity/enemyentity.cpp \
-	source/entity/healthpotionentity.cpp \
-	source/entity/staminapotionentity.cpp \
 	source/entity/player2entity.cpp \
 	source/entity/player3entity.cpp \
 	source/entity/player4entity.cpp \
 	source/entity/playerentity.cpp \
 	source/entity/player1entity.cpp \
-    source/entity/necronomiconentity.cpp
+    source/entity/necronomiconentity.cpp \
+    source/entity/crystalballentity.cpp \
+    source/entity/redskullentity.cpp \
+    source/entity/amuletentity.cpp
 
 HEADERS += \
 	source/defines.h \
@@ -43,7 +43,6 @@ HEADERS += \
 	source/entity/entity.h \
 	source/entity/spriteentity.h \
 	source/entity/itementity.h \
-	source/entity/heartentity.h \
 	source/entity/triggerentity.h \
 	source/entity/deathentity.h \
 	source/entity/teleportentity.h \
@@ -63,14 +62,15 @@ HEADERS += \
 	source/util/triggercounter.h \
 	source/util/collisionsensor.h \
 	source/entity/enemyentity.h \
-	source/entity/healthpotionentity.h \
-	source/entity/staminapotionentity.h \
 	source/entity/player2entity.h \
 	source/entity/player3entity.h \
 	source/entity/player4entity.h \
 	source/entity/playerentity.h \
 	source/entity/player1entity.h \
-    source/entity/necronomiconentity.h
+    source/entity/necronomiconentity.h \
+    source/entity/crystalballentity.h \
+    source/entity/redskullentity.h \
+    source/entity/amuletentity.h
 
 OTHER_FILES_CONFIG = \
 #Configs

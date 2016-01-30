@@ -395,7 +395,7 @@
 			cPosition: {z: 100}
 			sType: Sprite
 			sBlending: none
-			sName: HealthPotion
+			sName: CrystalBall
 			cColor: {r: 255, g: 255, b: 255, a: 255}
 			bVisible: false
 			aAnimations:
@@ -408,7 +408,8 @@
 				aFrames:
 				[
 				{
-					sResource: textures/health_potion.png
+					sResource: textures/uf_items.png
+					cBoundary: {iX: 576, iY: 336, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
@@ -419,7 +420,7 @@
 			cPosition: {z: 100}
 			sType: Sprite
 			sBlending: none
-			sName: StaminaPotion
+			sName: Amulet
 			cColor: {r: 255, g: 255, b: 255, a: 255}
 			bVisible: false
 			aAnimations:
@@ -432,7 +433,33 @@
 				aFrames:
 				[
 				{
-					sResource: textures/stamina_potion.png
+					sResource: textures/uf_items.png
+					cBoundary: {iX: 672, iY: 384, iWidth: 48, iHeight: 48}
+				}
+				]
+			}
+			]
+		}
+		{
+			cScale: {x: 1, y: 1, z: 1}
+			cPosition: {z: 100}
+			sType: Sprite
+			sBlending: none
+			sName: RedSkull
+			cColor: {r: 255, g: 255, b: 255, a: 255}
+			bVisible: false
+			aAnimations:
+			[
+			{
+				sName: "Idle"
+				bAnimated: true
+				bLoop: true
+				iFps: 1
+				aFrames:
+				[
+				{
+					sResource: textures/uf_items.png
+					cBoundary: {iX: 144, iY: 384, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
