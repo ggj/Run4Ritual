@@ -11,7 +11,7 @@ ENTITY_CREATOR("Player", PlayerEntity)
 PlayerEntity::PlayerEntity()
 	: SpriteEntity("Player", "Player")
 	, pBody(nullptr)
-	, pText(nullptr)
+	, pImpactFX(nullptr)
 	, vPlayerVectorDirection()
 	, eItem(ItemTypes::None)
 	, iPreviousState(Waiting)
@@ -30,7 +30,7 @@ PlayerEntity::PlayerEntity()
 PlayerEntity::PlayerEntity(const char *className, const char *spriteName, bool bIsActive)
 	: SpriteEntity(className, spriteName)
 	, pBody(nullptr)
-	, pText(nullptr)
+	, pImpactFX(nullptr)
 	, vPlayerVectorDirection()
 	, eItem(ItemTypes::None)
 	, iPreviousState(Waiting)
@@ -46,8 +46,8 @@ PlayerEntity::PlayerEntity(const char *className, const char *spriteName, bool b
 
 PlayerEntity::~PlayerEntity()
 {
-	gScene->Remove(pText);
-	sdDelete(pText);
+	gScene->Remove(pImpactFX);
+	sdDelete(pImpactFX);
 
 	pInput->RemoveKeyboardListener(this);
 	gPhysics->DestroyBody(pBody);
@@ -59,16 +59,11 @@ void PlayerEntity::Load(MetadataObject &metadata, SceneNode *sprites)
 	SpriteEntity::Load(metadata, sprites);
 	pSprite->SetZ(-10);
 
-	if (this->GetClassName() == "OptimistPlayer")
-		pText = sdNew(Sprite(*static_cast<Sprite *>(sprites->GetChildByName("BallonOptimist"))));
-	else if (this->GetClassName() == "RealistPlayer")
-		pText = sdNew(Sprite(*static_cast<Sprite *>(sprites->GetChildByName("BallonRealist"))));
-	else
-		pText = sdNew(Sprite(*static_cast<Sprite *>(sprites->GetChildByName("BallonPessimist"))));
+	pImpactFX = sdNew(Sprite(*static_cast<Sprite *>(sprites->GetChildByName("ImpactFX"))));
 
-	pText->SetPosition(0, 0);
-	pText->SetVisible(false);
-	gScene->Add(pText);
+	pImpactFX->SetPosition(0, 0);
+	pImpactFX->SetVisible(false);
+	gScene->Add(pImpactFX);
 
 	b2Vec2 customSize(32, 32);
 
@@ -107,21 +102,9 @@ void PlayerEntity::Teleport(const b2Vec2 &position)
 	gSoundManager->Play(SND_TELEPORT);
 }
 
-void PlayerEntity::Talk()
-{
-	if (pText)
-		pText->SetVisible(true);
-}
-
-void PlayerEntity::Mute()
-{
-	if (pText)
-		pText->SetVisible(false);
-}
-
 void PlayerEntity::Update(f32 dt)
 {
-	pText->SetPosition(pSprite->GetPosition() + vec3(0, -40, 0));
+	pImpactFX->SetPosition(pSprite->GetPosition() + vec3(0, 0, 0));
 
 	b2Vec2 vel = pBody->GetLinearVelocity();
 
@@ -139,7 +122,7 @@ void PlayerEntity::Update(f32 dt)
 				this->bIsInputEnabled = true;
 				this->StopPlayerMovement();
 				SetState(Waiting);
-				pText->SetVisible(false);
+				pImpactFX->SetVisible(false);
 			}
 		}
 	}
@@ -177,7 +160,7 @@ void PlayerEntity::Update(f32 dt)
 void PlayerEntity::SetItem(ItemTypes::Enum item)
 {
 	eItem = item;
-	pText->SetVisible(eItem == ItemTypes::Text);
+	pImpactFX->SetVisible(eItem == ItemTypes::Text);
 }
 
 ItemTypes::Enum PlayerEntity::GetItem() const
@@ -214,6 +197,7 @@ void PlayerEntity::StopPlayerMovement()
 void PlayerEntity::Attack()
 {
 	Log("%s: Attack", pTarget->GetClassName().c_str());
+	pTarget->OnDamage(b2Vec2(0, 0), 0);
 }
 
 bool PlayerEntity::GetIsActive()
@@ -378,8 +362,8 @@ bool PlayerEntity::OnDamage(const b2Vec2 vec2Push, u32 amount)
 	// Play damage sound
 	gSoundManager->Play(SND_DAMAGE);
 
-	// Apply force to player
-	pBody->ApplyForce(vec2Push, pBody->GetWorldCenter());
+	pImpactFX->SetVisible(true);
+	pSprite->SetAnimation("SingleSlash");
 
 	// Create the ghost effect
 	if (fInvicibleTime > 0)

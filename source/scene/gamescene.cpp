@@ -180,7 +180,6 @@ bool GameScene::Update(f32 dt)
 		pGameOverImg->SetVisible(true);
 		pGameOverImg->SetPosition(pCamera->GetPosition() - vec3(-512.0f, -384.0f, 0.0f));
 
-		pPlayer1->Mute();
 		pPlayer1->GetSprite()->SetVisible(false);
 		cFlow.OnEvent(&cOnGameOver, this);
 		pGameMap->SetVisible(false);

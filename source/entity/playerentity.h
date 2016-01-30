@@ -97,9 +97,6 @@ class PlayerEntity: public SpriteEntity,
 		void SetCrystalBall(bool);
 
 		//--
-
-		void Talk();
-		void Mute();
 		u32 GiveKey();
 		void ReceiveKey(u32 key);
 
@@ -129,7 +126,7 @@ class PlayerEntity: public SpriteEntity,
 	protected:
 		PlayerEntity *pTarget;
 		b2Body *pBody;
-		Sprite *pText;
+		Sprite *pImpactFX;
 		vec3 vPlayerVectorDirection;
 
 		ItemTypes::Enum eItem;

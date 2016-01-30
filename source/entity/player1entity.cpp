@@ -20,7 +20,8 @@ Player1Entity::Player1Entity()
 	sPlayer.iLifeTotal = 22;
 	sPlayer.iStamina = 10;
 	sPlayer.iStaminaTotal = 10;
-	this->SetIsActive(true);
+	bIsActive = true;
+	pTarget = nullptr;
 }
 
 bool Player1Entity::OnInputKeyboardPress(const EventInputKeyboard *ev)
@@ -119,17 +120,17 @@ void Player1Entity::Update(f32 dt)
 
 	if (pTarget != nullptr)
 	{
-/*		auto dir = pTarget->GetBodyPosition() - pBody->GetPosition();
+		auto dir = pTarget->GetBodyPosition() - pBody->GetPosition();
 		auto distance = dir.Normalize();
 
 		if (distance <= 1.5f)
-		{*/
+		{
 			bIsTargetReachable = true;
-		/*}
+		}
 		else
 		{
 			bIsTargetReachable = false;
-		}*/
+		}
 	}
 }
 

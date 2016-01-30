@@ -8,7 +8,6 @@ Player3Entity::Player3Entity()
 	: PlayerEntity("Player3", "Player3", false)
 {
 	fVelocity = 1.5f;
-
 	sPlayer.iKey = 3;
 	sPlayer.displayName = "Player3";
 	sPlayer.iLevel = 1;
@@ -20,7 +19,8 @@ Player3Entity::Player3Entity()
 	sPlayer.iLifeTotal = 12;
 	sPlayer.iStamina = 20;
 	sPlayer.iStaminaTotal = 20;
-	this->SetIsActive(true);
+	bIsActive = true;
+	pTarget = nullptr;
 }
 
 bool Player3Entity::OnInputKeyboardPress(const EventInputKeyboard *ev)
@@ -119,16 +119,16 @@ void Player3Entity::Update(f32 dt)
 
 	if (pTarget != nullptr)
 	{
-		/*auto dir = pTarget->GetBodyPosition() - pBody->GetPosition();
+		auto dir = pTarget->GetBodyPosition() - pBody->GetPosition();
 		auto distance = dir.Normalize();
 
 		if (distance <= 0.5f)
-		{*/
+		{
 			bIsTargetReachable = true;
-		/*}
+		}
 		else
 		{
 			bIsTargetReachable = false;
-		}*/
+		}
 	}
 }

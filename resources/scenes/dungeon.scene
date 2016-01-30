@@ -26,16 +26,20 @@
 				aFrames:
 				[
 					{
-						sResource: textures/archer_1.png
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 576, iY: 0, iWidth: 48, iHeight: 48}
 					}
 					{
-						sResource: textures/archer_2.png
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 624, iY: 0, iWidth: 48, iHeight: 48}
 					}
 					{
-						sResource: textures/archer_3.png
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 672, iY: 0, iWidth: 48, iHeight: 48}
 					}
 					{
-						sResource: textures/archer_4.png
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 720, iY: 0, iWidth: 48, iHeight: 48}
 					}
 				]
 			}
@@ -79,18 +83,22 @@
 				iFps: 6
 				aFrames:
 				[
-				{
-					sResource: textures/barbarian_m_1.png
-				}
-				{
-					sResource: textures/barbarian_m_2.png
-				}
-				{
-					sResource: textures/barbarian_m_3.png
-				}
-				{
-					sResource: textures/barbarian_m_4.png
-				}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 960, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 1008, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 1056, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 1104, iY: 0, iWidth: 48, iHeight: 48}
+					}
 				]
 			}
 			{
@@ -100,18 +108,22 @@
 				iFps: 8
 				aFrames:
 				[
-				{
-					sResource: textures/barbarian_m_1.png
-				}
-				{
-					sResource: textures/barbarian_m_2.png
-				}
-				{
-					sResource: textures/barbarian_m_3.png
-				}
-				{
-					sResource: textures/barbarian_m_4.png
-				}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 960, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 1008, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 1056, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 1104, iY: 0, iWidth: 48, iHeight: 48}
+					}
 				]
 			}
 			]
@@ -133,18 +145,22 @@
 				iFps: 6
 				aFrames:
 				[
-				{
-					sResource: textures/knight_1.png
-				}
-				{
-					sResource: textures/knight_2.png
-				}
-				{
-					sResource: textures/knight_3.png
-				}
-				{
-					sResource: textures/knight_4.png
-				}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 384, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 432, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 480, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 528, iY: 0, iWidth: 48, iHeight: 48}
+					}
 				]
 			}
 			{
@@ -154,18 +170,23 @@
 				iFps: 8
 				aFrames:
 				[
-				{
-					sResource: textures/knight_1.png
-				}
-				{
-					sResource: textures/knight_2.png
-				}
-				{
-					sResource: textures/knight_3.png
-				}
-				{
-					sResource: textures/knight_4.png
-				}				]
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 384, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 432, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 480, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 528, iY: 0, iWidth: 48, iHeight: 48}
+					}
+				]
 			}
 			]
 		}
@@ -187,16 +208,20 @@
 				aFrames:
 				[
 				{
-					sResource: textures/thief_1.png
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1344, iY: 0, iWidth: 48, iHeight: 48}
 				}
 				{
-					sResource: textures/thief_2.png
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1392, iY: 0, iWidth: 48, iHeight: 48}
 				}
 				{
-					sResource: textures/thief_3.png
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1440, iY: 0, iWidth: 48, iHeight: 48}
 				}
 				{
-					sResource: textures/thief_4.png
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1488, iY: 0, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
@@ -208,17 +233,22 @@
 				aFrames:
 				[
 				{
-					sResource: textures/thief_1.png
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1344, iY: 0, iWidth: 48, iHeight: 48}
 				}
 				{
-					sResource: textures/thief_2.png
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1392, iY: 0, iWidth: 48, iHeight: 48}
 				}
 				{
-					sResource: textures/thief_3.png
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1440, iY: 0, iWidth: 48, iHeight: 48}
 				}
 				{
-					sResource: textures/thief_4.png
-				}				]
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1488, iY: 0, iWidth: 48, iHeight: 48}
+				}
+				]
 			}
 			]
 		}
@@ -400,21 +430,30 @@
 			cPosition: {z: 100}
 			sType: Sprite
 			sBlending: none
-			sName: BallonPessimist
+			sName: ImpactFX
 			cColor: {r: 255, g: 255, b: 255, a: 255}
 			bVisible: false
 			aAnimations:
 			[
 			{
-				sName: "Idle"
+				sName: "SingleSlash"
 				bAnimated: true
 				bLoop: true
-				iFps: 1
+				iFps: 4
 				aFrames:
 				[
-				{
-					sResource: textures/ballon_pessimist.png
-				}
+					{
+						sResource: textures/uf_FX_impact.png
+						cBoundary: {iX: 96, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_FX_impact.png
+						cBoundary: {iX: 48, iY: 0, iWidth: 48, iHeight: 48}
+					}
+					{
+						sResource: textures/uf_FX_impact.png
+						cBoundary: {iX: 0, iY: 0, iWidth: 48, iHeight: 48}
+					}
 				]
 			}
 			]
