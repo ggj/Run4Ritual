@@ -443,7 +443,7 @@
 			cPosition: {z: 100}
 			sType: Sprite
 			sBlending: none
-			sName: Gold
+			sName: Necronomicon
 			cColor: {r: 255, g: 255, b: 255, a: 255}
 			bVisible: false
 			aAnimations:
@@ -456,7 +456,8 @@
 				aFrames:
 				[
 				{
-					sResource: textures/gold.png
+					sResource: textures/uf_items.png
+					cBoundary: {iX: 240, iY: 48, iWidth: 48, iHeight: 48}
 				}
 				]
 			}

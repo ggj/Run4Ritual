@@ -370,8 +370,11 @@ void PlayerEntity::OnCollect(ItemTypes::Enum item, u32 amount)
 		&& (this->GetStamina() + amount) < this->GetStaminaTotal())
 		this->SetStamina(this->GetStamina() + amount);
 
-	if(item == ItemTypes::Gold)
-		this->SetGold(this->GetGold() + amount);
+	if(item == ItemTypes::Necronomicon)
+	{
+		// TODO - Set the Necronomicon to the player.
+		//this->SetGold(this->GetGold() + amount);
+	}
 }
 
 u32 PlayerEntity::GiveKey()

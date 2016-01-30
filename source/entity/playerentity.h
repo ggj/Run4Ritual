@@ -13,7 +13,7 @@ namespace ItemTypes
 		Text,
 		HealthPotion,
 		StaminaPotion,
-		Gold
+		Necronomicon
 	};
 }
 

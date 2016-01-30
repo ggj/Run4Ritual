@@ -27,12 +27,12 @@ SOURCES += source/main.cpp \
 	source/entity/enemyentity.cpp \
 	source/entity/healthpotionentity.cpp \
 	source/entity/staminapotionentity.cpp \
-	source/entity/goldentity.cpp \
 	source/entity/player2entity.cpp \
 	source/entity/player3entity.cpp \
 	source/entity/player4entity.cpp \
-    source/entity/playerentity.cpp \
-    source/entity/player1entity.cpp
+	source/entity/playerentity.cpp \
+	source/entity/player1entity.cpp \
+    source/entity/necronomiconentity.cpp
 
 HEADERS += \
 	source/defines.h \
@@ -65,12 +65,12 @@ HEADERS += \
 	source/entity/enemyentity.h \
 	source/entity/healthpotionentity.h \
 	source/entity/staminapotionentity.h \
-	source/entity/goldentity.h \
 	source/entity/player2entity.h \
 	source/entity/player3entity.h \
 	source/entity/player4entity.h \
-    source/entity/playerentity.h \
-    source/entity/player1entity.h
+	source/entity/playerentity.h \
+	source/entity/player1entity.h \
+    source/entity/necronomiconentity.h
 
 OTHER_FILES_CONFIG = \
 #Configs
@@ -125,6 +125,7 @@ OTHER_FILES_TEXTURE = \
 	resources/textures/knight_3.png \
 	resources/textures/knight_4.png \
 	resources/textures/uf_terrain.png \
+	resources/textures/uf_items.png \
 
 #Gui
 OTHER_FILES_GUI_STYLE = \
