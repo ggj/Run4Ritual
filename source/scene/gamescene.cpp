@@ -346,27 +346,6 @@ void GameScene::OnJobCompleted(FileLoader *job)
 	pGameOverImg = (Image *)cScene.GetChildByName("GameOverImage");
 	pGameOverImg->SetVisible(false);
 
-	{
-		pFogMap = sdNew(GameMap);
-		pFogMap->sName = "Fog";
-		pFogMap->bMarkForDeletion = true;
-		pFogMap->SetPosition(pGameMap->GetPosition());
-		pFogMap->SetWidth(pGameMap->GetWidth());
-		pFogMap->SetHeight(pGameMap->GetHeight());
-		pFogMap->SetZ(-500);
-
-		pFog = pGameMap->GetLayerByName("Background")->AsTiled()->Clone();
-		pFog->sName = "Fog Layer";
-		pFogMap->AddLayer(pFog);
-
-		auto tex = static_cast<Texture *>(pResourceManager->Get("textures/fog_tileset.png", ITexture::GetTypeId()));
-		auto set = pFog->GetTileSet();
-		set->SetTexture(tex);
-		pFog->SetTileSet(set); // Trigger mesh rebuild
-
-		cScene.Add(pFogMap);
-	}
-
 	bInitialized = true;
 }
 
