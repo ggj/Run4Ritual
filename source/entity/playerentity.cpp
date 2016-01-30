@@ -443,7 +443,11 @@ void PlayerEntity::OnCollision(const CollisionEvent &event)
 		Entity *other = event.GetOtherEntity();
 		if (other != nullptr && other->GetClassName() == "Trigger")
 		{
-			gGameScene->UseKey(this->GiveKey());
+			//gGameScene->UseKey(this->GiveKey());
+
+			// Set to game over
+			if (sPlayer.bCrystalBall && sPlayer.bAmulet && sPlayer.bNecronomicon && sPlayer.bRedSkull)
+				gGameData->SetIsGameOver(true);
 		}
 	}
 }
