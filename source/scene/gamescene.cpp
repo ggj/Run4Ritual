@@ -35,7 +35,7 @@ GameScene::GameScene(SceneNode *parent, Camera *mainCamera, const String &sceneF
 	, fElapsed(0.0f)
 	, bPaused(false)
 	, bInitialized(false)
-	, bMoveCamera(false)
+	, bMoveCamera(true)
 	, bChangeLevel(false)
 {
 	gScene = &cScene;
@@ -151,35 +151,19 @@ bool GameScene::Update(f32 dt)
 	if (bPaused)
 		return true;
 
+	clPhysicsManager.RemoveBodies();
+	clPhysicsManager.Update(dt);
+	clWorldManager.Update(dt);
+
 	if (bMoveCamera)
 	{
-		fElapsed += dt;
-		if (fElapsed > 1.0f)
-			fElapsed = 1.0f;
-
-		if (fElapsed < 1.0f)
-		{
-			auto A = ((1.f - fElapsed) * vCameraFrom);
-			auto B = (fElapsed * vCameraTo);
-			vCameraCurrent = A + B;
-			clCamera.LookAt(vCameraCurrent);
-		}
-		else
-		{
-			clCamera.LookAt(pPlayer->GetSprite()->GetPosition());
-			bMoveCamera = false;
-		}
-	}
-	else
-	{
-		clPhysicsManager.RemoveBodies();
-		clPhysicsManager.Update(dt);
-		clWorldManager.Update(dt);
 		clCamera.LookAt(pPlayer->GetPosition());
-		this->FogReveal(pPlayerRealist->GetPosition(), 2);
-		this->FogReveal(pPlayerPessimist->GetPosition(), 1);
-		this->FogReveal(pPlayerOptimist->GetPosition(), 3);
+		bMoveCamera = false;
 	}
+
+	this->FogReveal(pPlayerRealist->GetPosition(), 2);
+	this->FogReveal(pPlayerPessimist->GetPosition(), 1);
+	this->FogReveal(pPlayerOptimist->GetPosition(), 3);
 
 	if (bChangeLevel)
 	{
