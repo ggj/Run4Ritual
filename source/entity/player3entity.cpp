@@ -7,7 +7,7 @@ ENTITY_CREATOR("Player3", Player3Entity)
 Player3Entity::Player3Entity()
 	: PlayerEntity("Player3", "Player3", false)
 {
-	fVelocity = 0.7f;
+	fVelocity = 1.5f;
 
 	sPlayer.iKey = 3;
 	sPlayer.displayName = "Player3";

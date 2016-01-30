@@ -182,7 +182,6 @@ bool GameScene::Update(f32 dt)
 		pPlayer1->Mute();
 		pPlayer1->GetSprite()->SetVisible(false);
 		cFlow.OnEvent(&cOnGameOver, this);
-		pFog->SetVisible(false);
 		pGameMap->SetVisible(false);
 
 		clWorldManager.Clear();
@@ -219,11 +218,6 @@ bool GameScene::OnInputKeyboardRelease(const EventInputKeyboard *ev)
 			cFlow.OnEvent(&cOnRun, this);
 		else
 			cFlow.OnEvent(&cOnPause, this);
-	}
-	else if (k == eKey::F12)
-	{
-		if (pFogMap)
-			pFogMap->SetVisible(!pFogMap->IsVisible());
 	}
 
 	return true;

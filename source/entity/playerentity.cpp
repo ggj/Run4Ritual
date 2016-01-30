@@ -333,6 +333,46 @@ void PlayerEntity::SetDefensePower(u32 defensePower)
 	sPlayer.iDefensePower = defensePower;
 }
 
+bool PlayerEntity::IsAmulet() const
+{
+	return sPlayer.bAmulet;
+}
+
+void PlayerEntity::SetAmulet(bool amulet)
+{
+	sPlayer.bAmulet = amulet;
+}
+
+bool PlayerEntity::IsNecronomicon() const
+{
+	return sPlayer.bNecronomicon;
+}
+
+void PlayerEntity::SetNecronomicon(bool necronomicon)
+{
+	sPlayer.bNecronomicon = necronomicon;
+}
+
+bool PlayerEntity::IsRedSkull() const
+{
+	return sPlayer.bRedSkull;
+}
+
+void PlayerEntity::SetRedSkull(bool redSkull)
+{
+	sPlayer.bRedSkull = redSkull;
+}
+
+bool PlayerEntity::IsCrystalBall() const
+{
+	return sPlayer.bCrystalBall;
+}
+
+void PlayerEntity::SetCrystalBall(bool crystalBall)
+{
+	sPlayer.bCrystalBall = crystalBall;
+}
+
 bool PlayerEntity::OnDamage(const b2Vec2 vec2Push, u32 amount)
 {
 	// Play damage sound
@@ -364,16 +404,26 @@ void PlayerEntity::OnCollect(ItemTypes::Enum item, u32 amount)
 	// Play collect sound
 	gSoundManager->Play(SND_POWERUP);
 
-	if(item == ItemTypes::HealthPotion
-		&& (this->GetLife() + amount) < this->GetLifeTotal())
-		this->SetLife(this->GetLife() + amount);
+	if(item == ItemTypes::CrystalBall)
+	{
+		this->SetCrystalBall(true);
+	}
 
-	if(item == ItemTypes::StaminaPotion
-		&& (this->GetStamina() + amount) < this->GetStaminaTotal())
-		this->SetStamina(this->GetStamina() + amount);
+	if(item == ItemTypes::RedSkull)
+	{
+		this->SetRedSkull(true);
+	}
 
-	if(item == ItemTypes::Gold)
-		this->SetGold(this->GetGold() + amount);
+	if(item == ItemTypes::Necronomicon)
+	{
+		this->SetNecronomicon(true);
+	}
+
+	if(item == ItemTypes::Amulet)
+	{
+		this->SetAmulet(true);
+	}
+
 }
 
 u32 PlayerEntity::GiveKey()
@@ -395,7 +445,11 @@ void PlayerEntity::OnCollision(const CollisionEvent &event)
 		Entity *other = event.GetOtherEntity();
 		if (other != nullptr && other->GetClassName() == "Trigger")
 		{
-			gGameScene->UseKey(this->GiveKey());
+			//gGameScene->UseKey(this->GiveKey());
+
+			// Set to game over
+			if (sPlayer.bCrystalBall && sPlayer.bAmulet && sPlayer.bNecronomicon && sPlayer.bRedSkull)
+				gGameData->SetIsGameOver(true);
 		}
 	}
 }
