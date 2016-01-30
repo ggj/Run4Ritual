@@ -13,6 +13,8 @@ class Player1Entity: public PlayerEntity
 
 		// IEventInputKeyboardListener
 		bool OnInputKeyboardRelease(const EventInputKeyboard *ev) override;
+
+		void Update(f32 dt) override;
 };
 
 #endif // _PLAYER1_ENTITY_H

@@ -13,6 +13,8 @@ class Player3Entity: public PlayerEntity
 
 		// IEventInputKeyboardListener
 		bool OnInputKeyboardRelease(const EventInputKeyboard *ev) override;
+
+		void Update(f32 dt) override;
 };
 
 #endif // _PESSIMIST_PLAYER_ENTITY_H

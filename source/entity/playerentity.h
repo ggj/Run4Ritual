@@ -127,6 +127,7 @@ class PlayerEntity: public SpriteEntity,
 		} sPlayer;
 
 	protected:
+		PlayerEntity *pTarget;
 		b2Body *pBody;
 		Sprite *pText;
 		vec3 vPlayerVectorDirection;
@@ -141,6 +142,7 @@ class PlayerEntity: public SpriteEntity,
 		f32 fMove;
 		f32 fUpDownMove;
 		f32 fInvicibleTime;
+		bool bIsTargetReachable;
 
 		bool bIsActive;
 		bool bIsInputEnabled;
