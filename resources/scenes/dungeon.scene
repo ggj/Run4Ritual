@@ -13,7 +13,7 @@
 			cPosition: {z: 100}
 			sType: Sprite
 			sBlending: none
-			sName: OptimistPlayer
+			sName: Player1
 			cColor: {r: 255, g: 255, b: 255, a: 255}
 			bVisible: false
 			aAnimations:
@@ -67,7 +67,7 @@
 			cPosition: {z: 100}
 			sType: Sprite
 			sBlending: none
-			sName: RealistPlayer
+			sName: Player2
 			cColor: {r: 255, g: 255, b: 255, a: 255}
 			bVisible: false
 			aAnimations:
@@ -121,7 +121,7 @@
 			cPosition: {z: 100}
 			sType: Sprite
 			sBlending: none
-			sName: PessimistPlayer
+			sName: Player3
 			cColor: {r: 255, g: 255, b: 255, a: 255}
 			bVisible: false
 			aAnimations:
@@ -165,6 +165,59 @@
 				}
 				{
 					sResource: textures/knight_4.png
+				}				]
+			}
+			]
+		}
+		{
+			cScale: {x: 1, y: 1, z: 1}
+			cPosition: {z: 100}
+			sType: Sprite
+			sBlending: none
+			sName: Player4
+			cColor: {r: 255, g: 255, b: 255, a: 255}
+			bVisible: false
+			aAnimations:
+			[
+			{
+				sName: "Idle"
+				bAnimated: true
+				bLoop: true
+				iFps: 6
+				aFrames:
+				[
+				{
+					sResource: textures/thief_1.png
+				}
+				{
+					sResource: textures/thief_2.png
+				}
+				{
+					sResource: textures/thief_3.png
+				}
+				{
+					sResource: textures/thief_4.png
+				}
+				]
+			}
+			{
+				sName: "Run"
+				bAnimated: true
+				bLoop: true
+				iFps: 8
+				aFrames:
+				[
+				{
+					sResource: textures/thief_1.png
+				}
+				{
+					sResource: textures/thief_2.png
+				}
+				{
+					sResource: textures/thief_3.png
+				}
+				{
+					sResource: textures/thief_4.png
 				}				]
 			}
 			]

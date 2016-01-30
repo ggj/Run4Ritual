@@ -115,7 +115,7 @@ void DeathEntity::OnCollision(const CollisionEvent &event)
 		Entity *other = event.GetOtherEntity();
 		if (other != NULL && other->GetClassName() == "Player")
 		{
-			PlayerEntity *player = static_cast<PlayerEntity *>(other);
+			Player1Entity *player = static_cast<Player1Entity *>(other);
 			if (player->GetItem() == ItemTypes::Text)
 			{
 				gSoundManager->Play(SND_POWERUP);

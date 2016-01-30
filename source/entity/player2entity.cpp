@@ -1,16 +1,16 @@
-#include "optimistplayerentity.h"
+#include "player2entity.h"
 #include "entityfactory.h"
 #include "../scene/gamescene.h"
 
-ENTITY_CREATOR("OptimistPlayer", OptimistPlayerEntity)
+ENTITY_CREATOR("Player2", Player2Entity)
 
-OptimistPlayerEntity::OptimistPlayerEntity()
-	: PlayerEntity("OptimistPlayer", "OptimistPlayer", true)
+Player2Entity::Player2Entity()
+	: PlayerEntity("Player2", "Player2", true)
 {
 	fVelocity = 2.5f;
 
 	sPlayer.iKey = 1;
-	sPlayer.displayName = "Optimist";
+	sPlayer.displayName = "Player2";
 	sPlayer.iLevel = 1;
 	sPlayer.iXP = 80;
 	sPlayer.iAttackPower = 15;

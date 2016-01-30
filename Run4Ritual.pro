@@ -2,7 +2,6 @@ SOURCES += source/main.cpp \
 	source/gameflow.cpp \
 	source/controller/cameracontroller.cpp \
 	source/data/gamedata.cpp \
-	source/entity/playerentity.cpp \
 	source/entity/entityfactory.cpp \
 	source/entity/entity.cpp \
 	source/entity/spriteentity.cpp \
@@ -25,20 +24,21 @@ SOURCES += source/main.cpp \
 	source/states/game/pause_state.cpp \
 	source/util/triggercounter.cpp \
 	source/util/collisionsensor.cpp \
-	source/entity/optimistplayerentity.cpp \
-	source/entity/pessimistplayerentity.cpp \
-	source/entity/realistplayerentity.cpp \
 	source/entity/enemyentity.cpp \
 	source/entity/healthpotionentity.cpp \
 	source/entity/staminapotionentity.cpp \
-	source/entity/goldentity.cpp
+	source/entity/goldentity.cpp \
+	source/entity/player2entity.cpp \
+	source/entity/player3entity.cpp \
+	source/entity/player4entity.cpp \
+    source/entity/playerentity.cpp \
+    source/entity/player1entity.cpp
 
 HEADERS += \
 	source/defines.h \
 	source/gameflow.h \
 	source/controller/cameracontroller.h \
 	source/data/gamedata.h \
-	source/entity/playerentity.h \
 	source/entity/entityfactory.h \
 	source/entity/entity.h \
 	source/entity/spriteentity.h \
@@ -62,13 +62,15 @@ HEADERS += \
 	source/util/sounds.h \
 	source/util/triggercounter.h \
 	source/util/collisionsensor.h \
-	source/entity/optimistplayerentity.h \
-	source/entity/pessimistplayerentity.h \
-	source/entity/realistplayerentity.h \
 	source/entity/enemyentity.h \
 	source/entity/healthpotionentity.h \
 	source/entity/staminapotionentity.h \
-	source/entity/goldentity.h
+	source/entity/goldentity.h \
+	source/entity/player2entity.h \
+	source/entity/player3entity.h \
+	source/entity/player4entity.h \
+    source/entity/playerentity.h \
+    source/entity/player1entity.h
 
 OTHER_FILES_CONFIG = \
 #Configs

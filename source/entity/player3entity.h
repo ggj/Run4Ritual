@@ -3,10 +3,10 @@
 
 #include "playerentity.h"
 
-class PessimistPlayerEntity: public PlayerEntity
+class Player3Entity: public PlayerEntity
 {
 	public:
-		PessimistPlayerEntity();
+		Player3Entity();
 
 		// IEventInputKeyboardListener
 		bool OnInputKeyboardPress(const EventInputKeyboard *ev) override;

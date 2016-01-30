@@ -10,9 +10,10 @@
 #include "../states/gameover_state.h"
 #include "../states/game/run_state.h"
 #include "../entity/playerentity.h"
-#include "../entity/optimistplayerentity.h"
-#include "../entity/realistplayerentity.h"
-#include "../entity/pessimistplayerentity.h"
+#include "../entity/player2entity.h"
+#include "../entity/player3entity.h"
+#include "../entity/player4entity.h"
+#include "../entity/player1entity.h"
 #include "../controller/cameracontroller.h"
 #include "../manager/soundmanager.h"
 
@@ -57,16 +58,15 @@ class GameScene : public IEventInputKeyboardListener,
 		virtual void LoadMapColliders();
 
 		void RemoveLife();
-		void ChangePlayer(const String currentPlayer);
 		void ChangeLevel();
 
 		void UseKey(u32 key);
 
 	private:
-		PlayerEntity	 *pPlayer;
-		PlayerEntity	 *pPlayerRealist;
-		PlayerEntity	 *pPlayerPessimist;
-		PlayerEntity	 *pPlayerOptimist;
+		PlayerEntity	 *pPlayer1;
+		PlayerEntity	 *pPlayer2;
+		PlayerEntity	 *pPlayer3;
+		PlayerEntity	 *pPlayer4;
 		Camera			 *pCamera;
 		CameraController clCamera;
 		SceneNode		*pParentScene;

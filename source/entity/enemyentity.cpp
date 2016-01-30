@@ -172,7 +172,7 @@ void EnemyEntity::OnCollision(const CollisionEvent &event)
 			(other != nullptr && other->GetClassName() == "RealistPlayer") ||
 			(other != nullptr && other->GetClassName() == "PessimistPlayer"))
 		{
-			PlayerEntity *player = static_cast<PlayerEntity *>(other);
+			Player1Entity *player = static_cast<Player1Entity *>(other);
 
 			// Stop player movement
 			player->StopPlayerMovement();

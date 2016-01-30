@@ -1,16 +1,16 @@
-#include "realistplayerentity.h"
+#include "player1entity.h"
 #include "entityfactory.h"
 #include "../scene/gamescene.h"
 
-ENTITY_CREATOR("RealistPlayer", RealistPlayerEntity)
+ENTITY_CREATOR("Player1", Player1Entity)
 
-RealistPlayerEntity::RealistPlayerEntity()
-	: PlayerEntity("RealistPlayer", "RealistPlayer", false)
+Player1Entity::Player1Entity()
+	: PlayerEntity("Player1", "Player1", false)
 {
 	fVelocity = 1.5f;
 
 	sPlayer.iKey = 2;
-	sPlayer.displayName = "Realist";
+	sPlayer.displayName = "Player1";
 	sPlayer.iLevel = 1;
 	sPlayer.iXP = 100;
 	sPlayer.iAttackPower = 10;

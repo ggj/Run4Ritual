@@ -10,10 +10,10 @@ WorldManager *gWorldManager = nullptr;
 GameScene *gGameScene = nullptr;
 
 GameScene::GameScene(SceneNode *parent, Camera *mainCamera, const String &sceneFile)
-	: pPlayer(nullptr)
-	, pPlayerRealist(nullptr)
-	, pPlayerPessimist(nullptr)
-	, pPlayerOptimist(nullptr)
+	: pPlayer1(nullptr)
+	, pPlayer2(nullptr)
+	, pPlayer3(nullptr)
+	, pPlayer4(nullptr)
 	, pCamera(mainCamera)
 	, clCamera()
 	, pParentScene(parent)
@@ -157,13 +157,13 @@ bool GameScene::Update(f32 dt)
 
 	if (bMoveCamera)
 	{
-		clCamera.LookAt(pPlayer->GetPosition());
+		clCamera.LookAt(pPlayer1->GetPosition());
 		bMoveCamera = false;
 	}
 
-	this->FogReveal(pPlayerRealist->GetPosition(), 2);
-	this->FogReveal(pPlayerPessimist->GetPosition(), 1);
-	this->FogReveal(pPlayerOptimist->GetPosition(), 3);
+	this->FogReveal(pPlayer2->GetPosition(), 2);
+	this->FogReveal(pPlayer3->GetPosition(), 1);
+	this->FogReveal(pPlayer4->GetPosition(), 3);
 
 	if (bChangeLevel)
 	{
@@ -179,8 +179,8 @@ bool GameScene::Update(f32 dt)
 		pGameOverImg->SetVisible(true);
 		pGameOverImg->SetPosition(pCamera->GetPosition() - vec3(-512.0f, -384.0f, 0.0f));
 
-		pPlayer->Mute();
-		pPlayer->GetSprite()->SetVisible(false);
+		pPlayer1->Mute();
+		pPlayer1->GetSprite()->SetVisible(false);
 		cFlow.OnEvent(&cOnGameOver, this);
 		pFog->SetVisible(false);
 		pGameMap->SetVisible(false);
@@ -289,25 +289,29 @@ void GameScene::OnJobCompleted(FileLoader *job)
 		{
 			Entity* entity = clWorldManager.BuildEntity(*placeHolder, sprites);
 			//Log("%s", entity->GetName().c_str());
-			if (entity->GetClassName() == "RealistPlayer")
+			if (entity->GetClassName() == "Player1")
 			{
-				pPlayerRealist = static_cast<RealistPlayerEntity*>(entity);
+				pPlayer2 = static_cast<Player1Entity*>(entity);
 			}
-			if (entity->GetClassName() == "PessimistPlayer")
+			if (entity->GetClassName() == "Player2")
 			{
-				pPlayerPessimist = static_cast<PessimistPlayerEntity*>(entity);
+				pPlayer3 = static_cast<Player2Entity*>(entity);
 			}
-			if (entity->GetClassName() == "OptimistPlayer")
+			if (entity->GetClassName() == "Player3")
 			{
-				pPlayerOptimist = static_cast<OptimistPlayerEntity*>(entity);
+				pPlayer4 = static_cast<Player3Entity*>(entity);
+			}
+			if (entity->GetClassName() == "Player4")
+			{
+				pPlayer4 = static_cast<Player4Entity*>(entity);
 			}
 		}
 	}
 
 	// If the player is not set, the player will be optimist
-	if (pPlayer == nullptr)
+	if (pPlayer1 == nullptr)
 	{
-		pPlayer = pPlayerOptimist;
+		pPlayer1 = pPlayer4;
 		musCur = &musThemeOptimist;
 		gGui->SelectHero("Optimist");
 		gGui->SelectEnemy();
@@ -317,7 +321,7 @@ void GameScene::OnJobCompleted(FileLoader *job)
 	this->LoadMapColliders();
 
 	clCamera.SetCamera(pCamera);
-	clCamera.LookAt(pPlayer->GetSprite()->GetPosition());
+	clCamera.LookAt(pPlayer1->GetSprite()->GetPosition());
 
 	MapLayerTiled *bg = pGameMap->GetLayerByName("Background")->AsTiled();
 
@@ -331,98 +335,6 @@ void GameScene::OnJobCompleted(FileLoader *job)
 	pGameOverImg->SetVisible(false);
 
 	bInitialized = true;
-}
-
-void GameScene::ChangePlayer(const String currentPlayer)
-{
-	pSoundSystem->StopMusic(10.0f);
-	bMoveCamera = true;
-
-	OptimistPlayerEntity *optimistPlayer = static_cast<OptimistPlayerEntity *>(gWorldManager->FindEntityByClassName("OptimistPlayer"));
-	RealistPlayerEntity *realistPlayer = static_cast<RealistPlayerEntity *>(gWorldManager->FindEntityByClassName("RealistPlayer"));
-	PessimistPlayerEntity *pessimistPlayer = static_cast<PessimistPlayerEntity *>(gWorldManager->FindEntityByClassName("PessimistPlayer"));
-
-	Log("Current player: %s", currentPlayer.c_str());
-
-	// otim -> real -> pess
-	if (pPlayer == optimistPlayer)
-	{
-		optimistPlayer->SetIsActive(false);
-		optimistPlayer->SetIsInputEnabled(false);
-		realistPlayer->SetIsActive(true);
-		realistPlayer->SetIsInputEnabled(true);
-		pessimistPlayer->SetIsActive(false);
-		pessimistPlayer->SetIsInputEnabled(false);
-		gGui->SelectHero("Realist");
-
-		// Change the terrain tileset
-		auto tiles = pGameMap->GetLayerByName("Background")->AsTiled();
-		auto set = tiles->GetTileSet();
-		set->SetTexture(pTilesetOptimist);
-
-		//Lerp camera
-		vCameraFrom = optimistPlayer->GetSprite()->GetPosition();
-		vCameraTo = realistPlayer->GetSprite()->GetPosition();
-		fElapsed = 0.0f;
-
-		pPlayer = realistPlayer;
-		musCur = &musThemeRealist;
-	}
-	else if (pPlayer == realistPlayer)
-	{
-		optimistPlayer->SetIsActive(false);
-		optimistPlayer->SetIsInputEnabled(false);
-		realistPlayer->SetIsActive(false);
-		realistPlayer->SetIsInputEnabled(false);
-		pessimistPlayer->SetIsActive(true);
-		pessimistPlayer->SetIsInputEnabled(true);
-		gGui->SelectHero("Pessimist");
-
-		// Change the terrain tileset
-		auto tiles = pGameMap->GetLayerByName("Background")->AsTiled();
-		auto set = tiles->GetTileSet();
-		set->SetTexture(pTilesetRealist);
-
-		//Lerp camera
-		vCameraFrom = realistPlayer->GetSprite()->GetPosition();
-		vCameraTo = pessimistPlayer->GetSprite()->GetPosition();
-		fElapsed = 0.0f;
-
-		pPlayer = pessimistPlayer;
-		musCur = &musThemePessimist;
-	}
-	else if (pPlayer == pessimistPlayer)
-	{
-		optimistPlayer->SetIsActive(true);
-		optimistPlayer->SetIsInputEnabled(true);
-		realistPlayer->SetIsActive(false);
-		realistPlayer->SetIsInputEnabled(false);
-		pessimistPlayer->SetIsActive(false);
-		pessimistPlayer->SetIsInputEnabled(false);
-		gGui->SelectHero("Optimist");
-
-		// Change the terrain tileset
-		auto tiles = pGameMap->GetLayerByName("Background")->AsTiled();
-		auto set = tiles->GetTileSet();
-		set->SetTexture(pTilesetPessimist);
-
-		//Lerp camera
-		vCameraFrom = pessimistPlayer->GetSprite()->GetPosition();
-		vCameraTo = optimistPlayer->GetSprite()->GetPosition();
-		fElapsed = 0.0f;
-
-		pPlayer = optimistPlayer;
-		musCur = &musThemeOptimist;
-	}
-
-	// Set the name of the player to UI
-	gGui->SetPlayerName(pPlayer->GetDisplayName());
-	gGui->SetLevel(pPlayer->GetLevel());
-	gGui->SetXP(pPlayer->GetXP());
-	gGui->SetLife(pPlayer->GetLife(), pPlayer->GetLifeTotal());
-	gGui->SetStamina(pPlayer->GetStamina(), pPlayer->GetStaminaTotal());
-
-	pSoundSystem->PlayMusic(musCur, 10.0f);
 }
 
 void GameScene::OnJobAborted()

@@ -1,16 +1,16 @@
-#include "pessimistplayerentity.h"
+#include "player3entity.h"
 #include "entityfactory.h"
 #include "../scene/gamescene.h"
 
-ENTITY_CREATOR("PessimistPlayer", PessimistPlayerEntity)
+ENTITY_CREATOR("Player3", Player3Entity)
 
-PessimistPlayerEntity::PessimistPlayerEntity()
-	: PlayerEntity("PessimistPlayer", "PessimistPlayer", false)
+Player3Entity::Player3Entity()
+	: PlayerEntity("Player3", "Player3", false)
 {
 	fVelocity = 0.7f;
 
 	sPlayer.iKey = 3;
-	sPlayer.displayName = "Pessimist";
+	sPlayer.displayName = "Player3";
 	sPlayer.iLevel = 1;
 	sPlayer.iXP = 200;
 	sPlayer.iAttackPower = 5;
@@ -23,7 +23,7 @@ PessimistPlayerEntity::PessimistPlayerEntity()
 	this->SetIsActive(true);
 }
 
-bool PessimistPlayerEntity::OnInputKeyboardPress(const EventInputKeyboard *ev)
+bool Player3Entity::OnInputKeyboardPress(const EventInputKeyboard *ev)
 {
 	if (this->bIsActive && this->bIsInputEnabled)
 	{
@@ -59,7 +59,7 @@ bool PessimistPlayerEntity::OnInputKeyboardPress(const EventInputKeyboard *ev)
 	return true;
 }
 
-bool PessimistPlayerEntity::OnInputKeyboardRelease(const EventInputKeyboard *ev)
+bool Player3Entity::OnInputKeyboardRelease(const EventInputKeyboard *ev)
 {
 	if (this->bIsActive && this->bIsInputEnabled)
 	{

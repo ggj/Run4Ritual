@@ -4,7 +4,7 @@
 #include "spriteentity.h"
 #include "../util/collisionsensor.h"
 
-class PlayerEntity;
+class Player1Entity;
 
 class DeathEntity: public SpriteEntity
 {

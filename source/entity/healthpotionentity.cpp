@@ -20,7 +20,7 @@ void HealthPotionEntity::OnCollision(const CollisionEvent &event)
 			(other != nullptr && other->GetClassName() == "RealistPlayer") ||
 			(other != nullptr && other->GetClassName() == "PessimistPlayer"))
 		{
-			PlayerEntity *player = static_cast<PlayerEntity *>(other);
+			Player1Entity *player = static_cast<Player1Entity *>(other);
 
 			// Disable item
 			this->pSprite->SetVisible(false);
