@@ -94,12 +94,6 @@ bool Player3Entity::OnInputKeyboardRelease(const EventInputKeyboard *ev)
 			fUpDownMove = 0;
 		}
 
-		if (k == eKey::Space)
-		{
-			gGameScene->ChangePlayer(this->GetClassName());
-			return false;
-		}
-
 		if (fUpDownMove == 0 && fMove == 0)
 		{
 			SetState(Idle);

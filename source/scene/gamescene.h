@@ -10,6 +10,7 @@
 #include "../states/gameover_state.h"
 #include "../states/game/run_state.h"
 #include "../entity/playerentity.h"
+#include "../entity/player1entity.h"
 #include "../entity/player2entity.h"
 #include "../entity/player3entity.h"
 #include "../entity/player4entity.h"

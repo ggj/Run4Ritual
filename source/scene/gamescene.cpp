@@ -291,15 +291,15 @@ void GameScene::OnJobCompleted(FileLoader *job)
 			//Log("%s", entity->GetName().c_str());
 			if (entity->GetClassName() == "Player1")
 			{
-				pPlayer2 = static_cast<Player1Entity*>(entity);
+				pPlayer1 = static_cast<Player1Entity*>(entity);
 			}
 			if (entity->GetClassName() == "Player2")
 			{
-				pPlayer3 = static_cast<Player2Entity*>(entity);
+				pPlayer2 = static_cast<Player2Entity*>(entity);
 			}
 			if (entity->GetClassName() == "Player3")
 			{
-				pPlayer4 = static_cast<Player3Entity*>(entity);
+				pPlayer3 = static_cast<Player3Entity*>(entity);
 			}
 			if (entity->GetClassName() == "Player4")
 			{

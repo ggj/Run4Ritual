@@ -39,7 +39,7 @@ class EnemyEntity: public SpriteEntity
 		void SetLife(u32 life);
 
 	private:
-		Player1Entity *pTarget;
+		PlayerEntity *pTarget;
 		b2Body *pBody;
 		CollisionSensor clSensor;
 		f32 fInvicibleTime;

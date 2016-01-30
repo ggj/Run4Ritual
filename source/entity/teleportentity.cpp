@@ -37,7 +37,7 @@ void TeleportEntity::OnCollision(const CollisionEvent &event)
 		{
 			Log("Teleport colidiu");
 
-			Player1Entity *player = static_cast<Player1Entity*>(event.GetOtherEntity());
+			PlayerEntity *player = static_cast<PlayerEntity*>(event.GetOtherEntity());
 			Entity *target = gWorldManager->FindEntityByName(this->GetTarget().c_str());
 			if (!target)
 				Log("Teleport %s without destination %s", this->GetName().c_str(), this->GetTarget().c_str());

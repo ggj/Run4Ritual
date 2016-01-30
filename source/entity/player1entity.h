@@ -3,10 +3,10 @@
 
 #include "playerentity.h"
 
-class RealistPlayerEntity: public PlayerEntity
+class Player1Entity: public PlayerEntity
 {
 	public:
-		RealistPlayerEntity();
+		Player1Entity();
 };
 
 #endif // _PLAYER1_ENTITY_H

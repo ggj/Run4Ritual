@@ -94,13 +94,16 @@ void EnemyEntity::Update(f32 dt)
 
 	// Search a nerby player
 	if (pTarget == nullptr || (pTarget != nullptr && !pTarget->GetIsActive()))
-		pTarget = static_cast<OptimistPlayerEntity *>(gWorldManager->FindEntityByClassName("OptimistPlayer"));
+		pTarget = static_cast<Player1Entity *>(gWorldManager->FindEntityByClassName("Player1"));
 
 	if (pTarget == nullptr || (pTarget != nullptr &&!pTarget->GetIsActive()))
-		pTarget = static_cast<RealistPlayerEntity *>(gWorldManager->FindEntityByClassName("RealistPlayer"));
+		pTarget = static_cast<Player2Entity *>(gWorldManager->FindEntityByClassName("Player2"));
 
 	if (pTarget == nullptr || (pTarget != nullptr && !pTarget->GetIsActive()))
-		pTarget = static_cast<PessimistPlayerEntity *>(gWorldManager->FindEntityByClassName("PessimistPlayer"));
+		pTarget = static_cast<Player3Entity *>(gWorldManager->FindEntityByClassName("Player3"));
+
+	if (pTarget == nullptr || (pTarget != nullptr && !pTarget->GetIsActive()))
+		pTarget = static_cast<Player4Entity *>(gWorldManager->FindEntityByClassName("Player4"));
 
 	if (pTarget != nullptr && pTarget->GetIsActive())
 	{
