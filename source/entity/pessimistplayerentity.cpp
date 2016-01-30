@@ -20,6 +20,7 @@ PessimistPlayerEntity::PessimistPlayerEntity()
 	sPlayer.iLifeTotal = 12;
 	sPlayer.iStamina = 20;
 	sPlayer.iStaminaTotal = 20;
+	this->SetIsActive(true);
 }
 
 bool PessimistPlayerEntity::OnInputKeyboardPress(const EventInputKeyboard *ev)
