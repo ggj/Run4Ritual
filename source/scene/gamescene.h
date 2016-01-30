@@ -17,6 +17,7 @@
 #include "../entity/player1entity.h"
 #include "../controller/cameracontroller.h"
 #include "../manager/soundmanager.h"
+#include "../manager/pathfindermanager.h"
 
 using namespace Seed::RocketGui;
 
@@ -27,6 +28,7 @@ extern PhysicsManager *gPhysics;
 extern SoundManager *gSoundManager;
 extern WorldManager *gWorldManager;
 extern GameScene *gGameScene;
+extern PathfinderManager *gPathfinderManager;
 
 class GameScene : public IEventInputKeyboardListener,
 				  public IRocketEventListener
@@ -77,7 +79,6 @@ class GameScene : public IEventInputKeyboardListener,
 		Music			musThemeOptimist;
 		Music			*musCur;
 		GameMap			*pGameMap;
-		GameMap			*pFogMap;
 		MapLayerTiled	*pFog;
 		u32				iTileSize;
 		Texture			*pTilesetOptimist;
@@ -87,6 +88,7 @@ class GameScene : public IEventInputKeyboardListener,
 		WorldManager	clWorldManager;
 		PhysicsManager	clPhysicsManager;
 		SoundManager	clSoundManager;
+		PathfinderManager	clPathfinderManager;
 
 		// State Machine
 		StateMachine		cFlow;

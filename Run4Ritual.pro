@@ -29,10 +29,11 @@ SOURCES += source/main.cpp \
 	source/entity/player4entity.cpp \
 	source/entity/playerentity.cpp \
 	source/entity/player1entity.cpp \
-    source/entity/necronomiconentity.cpp \
-    source/entity/crystalballentity.cpp \
-    source/entity/redskullentity.cpp \
-    source/entity/amuletentity.cpp
+	source/entity/necronomiconentity.cpp \
+	source/entity/crystalballentity.cpp \
+	source/entity/redskullentity.cpp \
+	source/entity/amuletentity.cpp \
+	source/manager/pathfindermanager.cpp
 
 HEADERS += \
 	source/defines.h \
@@ -67,10 +68,11 @@ HEADERS += \
 	source/entity/player4entity.h \
 	source/entity/playerentity.h \
 	source/entity/player1entity.h \
-    source/entity/necronomiconentity.h \
-    source/entity/crystalballentity.h \
-    source/entity/redskullentity.h \
-    source/entity/amuletentity.h
+	source/entity/necronomiconentity.h \
+	source/entity/crystalballentity.h \
+	source/entity/redskullentity.h \
+	source/entity/amuletentity.h \
+	source/manager/pathfindermanager.h
 
 OTHER_FILES_CONFIG = \
 #Configs
@@ -126,6 +128,7 @@ OTHER_FILES_TEXTURE = \
 	resources/textures/knight_4.png \
 	resources/textures/uf_terrain.png \
 	resources/textures/uf_items.png \
+	resources/textures/uf_heroes.png \
 
 #Gui
 OTHER_FILES_GUI_STYLE = \

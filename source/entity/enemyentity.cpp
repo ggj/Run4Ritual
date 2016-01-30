@@ -5,6 +5,9 @@
 #include "../manager/guimanager.h"
 #include <cmath>
 
+#define PIX2M		0.01f
+#define M2PIX		(1.0f / PIX2M)
+
 ENTITY_CREATOR("Enemy", EnemyEntity)
 
 EnemyEntity::EnemyEntity()
@@ -14,6 +17,8 @@ EnemyEntity::EnemyEntity()
 	, fInvicibleTime(0.0f)
 	, bPlayerLock(false)
 	, bIsDead(false)
+	, bIsPlayerFound(false)
+	, cPath()
 {
 	sEnemy.displayName = "Enemy";
 }
@@ -93,75 +98,65 @@ void EnemyEntity::Update(f32 dt)
 	}
 
 	// Search a nerby player
-	if (pTarget == nullptr || (pTarget != nullptr && !pTarget->GetIsActive()))
-		pTarget = static_cast<Player1Entity *>(gWorldManager->FindEntityByClassName("Player1"));
-
-	if (pTarget == nullptr || (pTarget != nullptr &&!pTarget->GetIsActive()))
-		pTarget = static_cast<Player2Entity *>(gWorldManager->FindEntityByClassName("Player2"));
-
-	if (pTarget == nullptr || (pTarget != nullptr && !pTarget->GetIsActive()))
+	if (pTarget == nullptr)
 		pTarget = static_cast<Player3Entity *>(gWorldManager->FindEntityByClassName("Player3"));
 
-	if (pTarget == nullptr || (pTarget != nullptr && !pTarget->GetIsActive()))
-		pTarget = static_cast<Player4Entity *>(gWorldManager->FindEntityByClassName("Player4"));
-
-	if (pTarget != nullptr && pTarget->GetIsActive())
+	if (pTarget != nullptr)
 	{
-		// Change enemy sprites
-		if (pTarget->GetClassName() == "OptimistPlayer")
-		{
-			if (sEnemy.iEnemyId == 0)
-				pSprite->SetAnimation("OptimistEnemy");
-			else if (sEnemy.iEnemyId == 1)
-				pSprite->SetAnimation("OptimistEnemy1");
-			else if (sEnemy.iEnemyId == 2)
-				pSprite->SetAnimation("OptimistEnemy2");
-			else
-				pSprite->SetAnimation("OptimistEnemy3");
-		}
-		else if (pTarget->GetClassName() == "RealistPlayer")
-		{
-			if (sEnemy.iEnemyId == 0)
-				pSprite->SetAnimation("RealistEnemy");
-			else if (sEnemy.iEnemyId == 1)
-				pSprite->SetAnimation("RealistEnemy1");
-			else if (sEnemy.iEnemyId == 2)
-				pSprite->SetAnimation("RealistEnemy2");
-			else
-				pSprite->SetAnimation("RealistEnemy3");
-		}
-		else
-		{
-			if (sEnemy.iEnemyId == 0)
-				pSprite->SetAnimation("PessimistEnemy");
-			else if (sEnemy.iEnemyId == 1)
-				pSprite->SetAnimation("PessimistEnemy1");
-			else if (sEnemy.iEnemyId == 2)
-				pSprite->SetAnimation("PessimistEnemy2");
-			else
-				pSprite->SetAnimation("PessimistEnemy3");
-		}
+		auto dir = pTarget->GetBodyPosition() - pBody->GetPosition();
+		auto distance = dir.Normalize();
 
-		b2Vec2 dir = pTarget->GetBodyPosition() - pBody->GetPosition();
-
-		f32 distance = dir.Normalize();
-
-		if (distance <= 1.0f && !bPlayerLock)
+		if (distance <= 1.5f && !bPlayerLock)
 		{
-			pTarget->Talk();
+			Log("Achou o player");
 			bPlayerLock = true;
-			this->SetDisplayName(this->GetDisplayName());
-			this->SetLevel(this->GetLevel());
-			this->SetLife(this->GetLife());
-			gGui->SelectEnemy(pTarget->GetDisplayName(), this->sEnemy.iEnemyId);
 		}
-		else if (bPlayerLock && distance >= 1.0f)
+		else if (bPlayerLock)
 		{
-			pTarget->Mute();
-			bPlayerLock = false;
-			gGui->SelectEnemy();
+			if (distance >= 2.0f)
+			{
+				Log("Perdeu o player");
+				bPlayerLock = false;
+
+				// Stop the enenmy
+				b2Vec2 vel = pBody->GetLinearVelocity();
+				vel.x = 0;
+				vel.y = 0;
+
+				// Make the enemy follow the player
+				pBody->SetLinearVelocity(vel);
+
+			}
+			else
+			{
+				this->FindPathToPlayer();
+			}
 		}
 	}
+
+}
+
+void EnemyEntity::FindPathToPlayer()
+{
+	// Find path to the player
+	gPathfinderManager->Findpath(pSprite->GetPosition(), pTarget->GetSprite()->GetPosition(), cPath);
+	bIsPlayerFound = false;
+
+	if (cPath.GetDirectionSteps().empty())
+		return;
+
+	// Find the steps to follow
+	auto dir = cPath.GetDirectionSteps().top();
+
+	b2Vec2 vel = pBody->GetLinearVelocity();
+	vel.x = dir.x;
+	vel.y = dir.y;
+
+	// Make the enemy follow the player
+	pBody->SetLinearVelocity(vel);
+
+	while (!cPath.GetDirectionSteps().empty())
+		cPath.GetDirectionSteps().pop();
 }
 
 void EnemyEntity::OnCollision(const CollisionEvent &event)
@@ -171,9 +166,10 @@ void EnemyEntity::OnCollision(const CollisionEvent &event)
 		Log("ENEMY colidiu");
 
 		Entity *other = event.GetOtherEntity();
-		if ((other != nullptr && other->GetClassName() == "OptimistPlayer") ||
-			(other != nullptr && other->GetClassName() == "RealistPlayer") ||
-			(other != nullptr && other->GetClassName() == "PessimistPlayer"))
+		if ((other != nullptr && other->GetClassName() == "Player1") ||
+			(other != nullptr && other->GetClassName() == "Player2") ||
+			(other != nullptr && other->GetClassName() == "Player3") ||
+			(other != nullptr && other->GetClassName() == "Player4"))
 		{
 			Player1Entity *player = static_cast<Player1Entity *>(other);
 

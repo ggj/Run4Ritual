@@ -4,6 +4,7 @@
 #include "spriteentity.h"
 #include "../util/collisionsensor.h"
 #include "playerentity.h"
+#include <map/pathfind/Path.h>
 
 class EnemyEntity: public SpriteEntity
 {
@@ -29,6 +30,8 @@ class EnemyEntity: public SpriteEntity
 			u32 iLifeTotal;
 		} sEnemy;
 
+		void FindPathToPlayer();
+
 		String GetDisplayName() const;
 		void SetDisplayName(const String &displayName);
 
@@ -45,6 +48,8 @@ class EnemyEntity: public SpriteEntity
 		f32 fInvicibleTime;
 		bool bPlayerLock;
 		bool bIsDead;
+		bool bIsPlayerFound;
+		Path cPath;
 };
 
 #endif

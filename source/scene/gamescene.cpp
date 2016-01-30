@@ -8,6 +8,7 @@ PhysicsManager *gPhysics = nullptr;
 SoundManager *gSoundManager =nullptr;
 WorldManager *gWorldManager = nullptr;
 GameScene *gGameScene = nullptr;
+PathfinderManager *gPathfinderManager = nullptr;
 
 GameScene::GameScene(SceneNode *parent, Camera *mainCamera, const String &sceneFile)
 	: pPlayer1(nullptr)
@@ -20,7 +21,6 @@ GameScene::GameScene(SceneNode *parent, Camera *mainCamera, const String &sceneF
 	, cScene()
 	, musCur(nullptr)
 	, pGameMap(nullptr)
-	, pFogMap(nullptr)
 	, pFog(nullptr)
 	, iTileSize(40) // READ FROM MAP - USED FOR FOG PIXEL TO TILE CONVERSION
 	, pTilesetOptimist(nullptr)
@@ -41,6 +41,7 @@ GameScene::GameScene(SceneNode *parent, Camera *mainCamera, const String &sceneF
 	gScene = &cScene;
 	gPhysics = &clPhysicsManager;
 	gSoundManager = &clSoundManager;
+	gPathfinderManager = &clPathfinderManager;
 	gWorldManager = &clWorldManager;
 	gGameScene = this;
 	memset(&bRequiredKeys, 0x00, sizeof(bRequiredKeys));
@@ -275,6 +276,10 @@ void GameScene::OnJobCompleted(FileLoader *job)
 
 	MapLayerMetadata *game = pGameMap->GetLayerByName("Game")->AsMetadata();
 	game->SetVisible(false);
+
+	// Initialize the pathfinder with the background and collider layers
+	clPathfinderManager.Init(pGameMap->GetLayerByName("Background")->AsTiled());
+
 	for (unsigned i = 0, len = game->Size(); i < len; ++i)
 	{
 		MetadataObject *placeHolder = static_cast<MetadataObject *>(game->GetChildAt(i));
