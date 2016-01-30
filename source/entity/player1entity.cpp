@@ -55,7 +55,7 @@ bool Player1Entity::OnInputKeyboardPress(const EventInputKeyboard *ev)
 			fUpDownMove = 1;
 		}
 
-		if (k == eKey::Enter)
+		if (k == eKey::Enter && bIsTargetReachable)
 		{
 			SetState(Attacking);
 			Attack();
@@ -107,5 +107,29 @@ bool Player1Entity::OnInputKeyboardRelease(const EventInputKeyboard *ev)
 	}
 
 	return true;
+}
+
+void Player1Entity::Update(f32 dt)
+{
+	PlayerEntity::Update(dt);
+
+	// Search a nerby player
+	if (pTarget == nullptr)
+		pTarget = static_cast<PlayerEntity *>(gWorldManager->FindEntityByClassName("Player3"));
+
+	if (pTarget != nullptr)
+	{
+		auto dir = pTarget->GetBodyPosition() - pBody->GetPosition();
+		auto distance = dir.Normalize();
+
+		if (distance <= 1.5f)
+		{
+			bIsTargetReachable = true;
+		}
+		else
+		{
+			bIsTargetReachable = false;
+		}
+	}
 }
 

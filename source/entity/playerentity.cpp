@@ -22,6 +22,8 @@ PlayerEntity::PlayerEntity()
 	, fInvicibleTime(0.0f)
 	, bIsActive(false)
 	, bIsInputEnabled(true)
+	, pTarget(nullptr)
+	, bIsTargetReachable(false)
 {
 }
 
@@ -211,7 +213,7 @@ void PlayerEntity::StopPlayerMovement()
 
 void PlayerEntity::Attack()
 {
-	Log("%s: Attack", this->GetName().c_str());
+	Log("%s: Attack", pTarget->GetClassName().c_str());
 }
 
 bool PlayerEntity::GetIsActive()
