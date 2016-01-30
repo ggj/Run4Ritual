@@ -92,12 +92,6 @@ OTHER_FILES_SCENE = \
 OTHER_FILES_TEXTURE = \
 #Textures
 	resources/textures/rocket_invader.png \
-	resources/textures/realist_player_run_frame2.png \
-	resources/textures/realist_player_run_frame1.png \
-	resources/textures/pessimist_player_run_frame2.png \
-	resources/textures/pessimist_player_run_frame1.png \
-	resources/textures/optimist_player_run_frame2.png \
-	resources/textures/optimist_player_run_frame1.png \
 	resources/textures/heart.png \
 	resources/textures/menu_background.png \
 	resources/textures/background_gameover.png \

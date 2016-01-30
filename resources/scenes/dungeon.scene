@@ -22,7 +22,7 @@
 				sName: "Idle"
 				bAnimated: true
 				bLoop: true
-				iFps: 10
+				iFps: 6
 				aFrames:
 				[
 					{
@@ -43,15 +43,21 @@
 				sName: "Run"
 				bAnimated: true
 				bLoop: true
-				iFps: 6
+				iFps: 8
 				aFrames:
 				[
-				{
-					sResource: textures/optimist_player_run_frame1.png
-				}
-				{
-					sResource: textures/optimist_player_run_frame2.png
-				}
+					{
+						sResource: textures/archer_1.png
+					}
+					{
+						sResource: textures/archer_2.png
+					}
+					{
+						sResource: textures/archer_3.png
+					}
+					{
+						sResource: textures/archer_4.png
+					}
 				]
 			}
 			]
@@ -70,7 +76,7 @@
 				sName: "Idle"
 				bAnimated: true
 				bLoop: true
-				iFps: 10
+				iFps: 6
 				aFrames:
 				[
 				{
@@ -91,14 +97,20 @@
 				sName: "Run"
 				bAnimated: true
 				bLoop: true
-				iFps: 6
+				iFps: 8
 				aFrames:
 				[
 				{
-					sResource: textures/realist_player_run_frame1.png
+					sResource: textures/barbarian_m_1.png
 				}
 				{
-					sResource: textures/realist_player_run_frame2.png
+					sResource: textures/barbarian_m_2.png
+				}
+				{
+					sResource: textures/barbarian_m_3.png
+				}
+				{
+					sResource: textures/barbarian_m_4.png
 				}
 				]
 			}
@@ -118,7 +130,7 @@
 				sName: "Idle"
 				bAnimated: true
 				bLoop: true
-				iFps: 10
+				iFps: 6
 				aFrames:
 				[
 				{
@@ -139,16 +151,21 @@
 				sName: "Run"
 				bAnimated: true
 				bLoop: true
-				iFps: 6
+				iFps: 8
 				aFrames:
 				[
 				{
-					sResource: textures/pessimist_player_run_frame1.png
+					sResource: textures/knight_1.png
 				}
 				{
-					sResource: textures/pessimist_player_run_frame2.png
+					sResource: textures/knight_2.png
 				}
-				]
+				{
+					sResource: textures/knight_3.png
+				}
+				{
+					sResource: textures/knight_4.png
+				}				]
 			}
 			]
 		}

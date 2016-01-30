@@ -144,9 +144,11 @@ void PlayerEntity::Update(f32 dt)
 
 	if (fMove != 0)
 	{
+		// Change sprite direction based on movement
+		this->GetSprite()->SetScaleX(-fMove);
+
 		vel.x = fVelocity * fMove;
 		pBody->SetLinearVelocity(vel);
-
 	}
 
 	if (fUpDownMove != 0)
@@ -178,25 +180,25 @@ bool PlayerEntity::OnInputKeyboardPress(const EventInputKeyboard *ev)
 
 //		b2Vec2 vel = pBody->GetLinearVelocity();
 
-		if ((k == eKey::Up || k == eKey::W) && iCurrentState != Jump)
+		if (k == eKey::Up && iCurrentState != Jump)
 		{
 			SetState(Run);
 			fUpDownMove = -1;
 		}
 
-		if (k == eKey::Left || k == eKey::A)
+		if (k == eKey::Left)
 		{
 			SetState(Run);
 			fMove = -1;
 		}
 
-		if (k == eKey::Right || k == eKey::D)
+		if (k == eKey::Right)
 		{
 			SetState(Run);
 			fMove = 1;
 		}
 
-		if (k == eKey::Down || k == eKey::S)
+		if (k == eKey::Down)
 		{
 			SetState(Run);
 			fUpDownMove = 1;

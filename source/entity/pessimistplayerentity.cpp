@@ -22,3 +22,88 @@ PessimistPlayerEntity::PessimistPlayerEntity()
 	sPlayer.iStaminaTotal = 20;
 }
 
+bool PessimistPlayerEntity::OnInputKeyboardPress(const EventInputKeyboard *ev)
+{
+	if (this->bIsActive && this->bIsInputEnabled)
+	{
+		Key k = ev->GetKey();
+
+//		b2Vec2 vel = pBody->GetLinearVelocity();
+
+		if (k == eKey::W && iCurrentState != Jump)
+		{
+			SetState(Run);
+			fUpDownMove = -1;
+		}
+
+		if (k == eKey::A)
+		{
+			SetState(Run);
+			fMove = -1;
+		}
+
+		if (k == eKey::D)
+		{
+			SetState(Run);
+			fMove = 1;
+		}
+
+		if (k == eKey::S)
+		{
+			SetState(Run);
+			fUpDownMove = 1;
+		}
+	}
+
+	return true;
+}
+
+bool PessimistPlayerEntity::OnInputKeyboardRelease(const EventInputKeyboard *ev)
+{
+	if (this->bIsActive && this->bIsInputEnabled)
+	{
+		Key k = ev->GetKey();
+
+		b2Vec2 vel = pBody->GetLinearVelocity();
+		vel.x = 0;
+		vel.y = 0;
+
+		// Remove the directions
+		if (k == eKey::W)
+		{
+			pBody->SetLinearVelocity(vel);
+			fUpDownMove = 0;
+		}
+
+		if (k == eKey::A)
+		{
+			pBody->SetLinearVelocity(vel);
+			fMove = 0;
+		}
+
+		if (k == eKey::D)
+		{
+			pBody->SetLinearVelocity(vel);
+			fMove = 0;
+		}
+
+		if (k == eKey::S)
+		{
+			pBody->SetLinearVelocity(vel);
+			fUpDownMove = 0;
+		}
+
+		if (k == eKey::Space)
+		{
+			gGameScene->ChangePlayer(this->GetClassName());
+			return false;
+		}
+
+		if (fUpDownMove == 0 && fMove == 0)
+		{
+			SetState(Idle);
+		}
+	}
+
+	return true;
+}
