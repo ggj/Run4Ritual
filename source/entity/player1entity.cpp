@@ -119,17 +119,17 @@ void Player1Entity::Update(f32 dt)
 
 	if (pTarget != nullptr)
 	{
-		auto dir = pTarget->GetBodyPosition() - pBody->GetPosition();
+/*		auto dir = pTarget->GetBodyPosition() - pBody->GetPosition();
 		auto distance = dir.Normalize();
 
 		if (distance <= 1.5f)
-		{
+		{*/
 			bIsTargetReachable = true;
-		}
+		/*}
 		else
 		{
 			bIsTargetReachable = false;
-		}
+		}*/
 	}
 }
 
