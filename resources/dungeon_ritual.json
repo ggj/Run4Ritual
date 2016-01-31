@@ -1055,6 +1055,19 @@
                  "width":21,
                  "x":1262,
                  "y":191
+                }, 
+                {
+                 "height":90,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":46,
+                 "x":961,
+                 "y":459
                 }],
          "opacity":1,
          "type":"objectgroup",
