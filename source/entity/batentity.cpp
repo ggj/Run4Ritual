@@ -34,38 +34,27 @@ void BatEntity::Update(f32 dt)
 	// Search a nerby player
 	if (pTarget == nullptr)
 		pTarget = static_cast<Player1Entity *>(gWorldManager->FindEntityByClassName("Player1"));
-	if (pTarget == nullptr)
-		pTarget = static_cast<Player2Entity *>(gWorldManager->FindEntityByClassName("Player2"));
-	if (pTarget == nullptr)
-		pTarget = static_cast<Player4Entity *>(gWorldManager->FindEntityByClassName("Player4"));
+
 
 	if (pTarget != nullptr)
 	{
 		auto dir = pTarget->GetBodyPosition() - pBody->GetPosition();
 		auto distance = dir.Normalize();
 
-
-		if (bPlayerLock)
+		if (distance > 2.0f)
 		{
-			if (distance > 2.0f)
-			{
-				Log("Perdeu o player");
-				this->StopToFollow();
-			}
-			else
-			{
-				this->FindPathToPlayer();
-			}
+			this->StopToFollow();
+			pTarget = nullptr;
+		}
+		else if(distance <= 0.8)
+		{
+			if(pTarget->GetInvencibleTime() == 0)
+				pTarget->OnDamage(b2Vec2(0, 0), 1);
 		}
 		else
 		{
-			if (distance <= 2.0f)
-			{
-				Log("Achou o player");
-				bPlayerLock = true;
-			}
+			this->FindPathToPlayer();
 		}
-
 	}
 }
 

@@ -199,6 +199,11 @@ bool PlayerEntity::GetIsActive()
 	return bIsActive;
 }
 
+f32 PlayerEntity::GetInvencibleTime()
+{
+	return fInvicibleTime;
+}
+
 void PlayerEntity::SetState(int newState)
 {
 	iPreviousState = iCurrentState;

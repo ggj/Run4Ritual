@@ -80,6 +80,8 @@ class PlayerEntity: public SpriteEntity,
 		void SetStaminaTotal(u32);
 		void RemoveStaminaTotal();
 
+		f32 GetInvencibleTime();
+
 		//--
 
 		bool IsAmulet() const;

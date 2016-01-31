@@ -132,6 +132,7 @@ void Player1Entity::Update(f32 dt)
 		else
 		{
 			bIsTargetReachable = false;
+			pTarget = nullptr;
 		}
 	}
 }
