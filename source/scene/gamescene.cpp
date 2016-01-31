@@ -179,10 +179,23 @@ bool GameScene::Update(f32 dt)
 
 	if (gGameData->sGamePlay.bIsGameOver == true)
 	{
-		pGameOverImg->SetVisible(true);
-		pGameOverImg->SetPosition(pCamera->GetPosition() - vec3(-512.0f, -384.0f, 0.0f));
+		// Veriry if the player has all the reagents or life > 0
+		if ((pPlayer1->IsAmulet() && pPlayer1->IsCrystalBall() && pPlayer1->IsNecronomicon() && pPlayer1->IsRedSkull()) ||
+			(pPlayer1->GetLife() > 0 && pPlayer2->GetLife() <= 0))
+		{
+			pGameOverImg->SetVisible(true);
+			pGameOverImg->SetPosition(pCamera->GetPosition() - vec3(-512.0f, -384.0f, 0.0f));
 
-		pPlayer1->GetSprite()->SetVisible(false);
+			pPlayer1->GetSprite()->SetVisible(false);
+		}
+		else
+		{
+			pGameOverImg2->SetVisible(true);
+			pGameOverImg2->SetPosition(pCamera->GetPosition() - vec3(-512.0f, -384.0f, 0.0f));
+
+			pPlayer2->GetSprite()->SetVisible(false);
+		}
+
 		cFlow.OnEvent(&cOnGameOver, this);
 		pGameMap->SetVisible(false);
 
@@ -327,8 +340,21 @@ void GameScene::OnJobCompleted(FileLoader *job)
 
 	sprites->SetVisible(false);
 
+	// Player 1 wins
 	pGameOverImg = (Image *)cScene.GetChildByName("GameOverImage");
 	pGameOverImg->SetVisible(false);
+
+	// Player 2 wins
+	pGameOverImg2 = (Image *)cScene.GetChildByName("GameOverImage2");
+	pGameOverImg2->SetVisible(false);
+
+	// Player 3 wins
+	pGameOverImg3 = (Image *)cScene.GetChildByName("GameOverImage3");
+	pGameOverImg3->SetVisible(false);
+
+	// Player 4 wins
+	pGameOverImg3 = (Image *)cScene.GetChildByName("GameOverImage4");
+	pGameOverImg3->SetVisible(false);
 
 	bInitialized = true;
 }

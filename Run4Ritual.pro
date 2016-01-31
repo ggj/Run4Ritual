@@ -33,7 +33,11 @@ SOURCES += source/main.cpp \
 	source/entity/crystalballentity.cpp \
 	source/entity/redskullentity.cpp \
 	source/entity/amuletentity.cpp \
-	source/manager/pathfindermanager.cpp
+	source/manager/pathfindermanager.cpp \
+	source/entity/skeletonentity.cpp \
+	source/entity/snakeentity.cpp \
+	source/entity/beetleentity.cpp \
+	source/entity/frogentity.cpp
 
 HEADERS += \
 	source/defines.h \
@@ -72,7 +76,11 @@ HEADERS += \
 	source/entity/crystalballentity.h \
 	source/entity/redskullentity.h \
 	source/entity/amuletentity.h \
-	source/manager/pathfindermanager.h
+	source/manager/pathfindermanager.h \
+	source/entity/skeletonentity.h \
+	source/entity/snakeentity.h \
+	source/entity/beetleentity.h \
+	source/entity/frogentity.h
 
 OTHER_FILES_CONFIG = \
 #Configs
@@ -119,6 +127,9 @@ OTHER_FILES_TEXTURE = \
 	resources/textures/uf_heroes.png \
 	resources/textures/uf_FX_impact.png \
 	resources/textures/uf_interface.png \
+	resources/textures/background_gameover2.png \
+	resources/textures/background_gameover3.png \
+	resources/textures/background_gameover4.png \
 
 #Gui
 OTHER_FILES_GUI_STYLE = \

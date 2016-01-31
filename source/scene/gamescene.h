@@ -116,6 +116,9 @@ class GameScene : public IEventInputKeyboardListener,
 		f32 fTimeToNextLevel;
 
 		Image *pGameOverImg;
+		Image *pGameOverImg2;
+		Image *pGameOverImg3;
+		Image *pGameOverImg4;
 
 		// Lerp camera
 		vec3	vCameraFrom;

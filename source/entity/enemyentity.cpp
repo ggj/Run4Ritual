@@ -10,6 +10,19 @@
 
 ENTITY_CREATOR("Enemy", EnemyEntity)
 
+EnemyEntity::EnemyEntity(const char *className, const char *spriteName)
+	: SpriteEntity(className, spriteName)
+	, pTarget(nullptr)
+	, pBody(nullptr)
+	, fInvicibleTime(0.0f)
+	, bPlayerLock(false)
+	, bIsDead(false)
+	, bIsPlayerFound(false)
+	, cPath()
+{
+
+}
+
 EnemyEntity::EnemyEntity()
 	: SpriteEntity("Enemy", "Enemy")
 	, pTarget(nullptr)
