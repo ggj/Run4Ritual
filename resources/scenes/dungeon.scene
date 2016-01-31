@@ -270,12 +270,24 @@
 				sName: "Idle"
 				bAnimated: true
 				bLoop: true
-				iFps: 1
+				iFps: 6
 				aFrames:
 				[
 				{
 					sResource: textures/uf_heroes.png
 					cBoundary: {iX: 0, iY: 144, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 48, iY: 144, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 96, iY: 144, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 144, iY: 144, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
@@ -295,12 +307,24 @@
 				sName: "Idle"
 				bAnimated: true
 				bLoop: true
-				iFps: 1
+				iFps: 6
 				aFrames:
 				[
 				{
 					sResource: textures/uf_heroes.png
 					cBoundary: {iX: 576, iY: 576, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 624, iY: 576, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 672, iY: 576, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 720, iY: 576, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
@@ -320,12 +344,24 @@
 				sName: "Idle"
 				bAnimated: true
 				bLoop: true
-				iFps: 1
+				iFps: 6
 				aFrames:
 				[
 				{
 					sResource: textures/uf_heroes.png
 					cBoundary: {iX: 768, iY: 480, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 816, iY: 480, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 864, iY: 480, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 912, iY: 480, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
@@ -345,12 +381,24 @@
 				sName: "Idle"
 				bAnimated: true
 				bLoop: true
-				iFps: 1
+				iFps: 6
 				aFrames:
 				[
 				{
 					sResource: textures/uf_heroes.png
 					cBoundary: {iX: 384, iY: 240, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 432, iY: 240, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 480, iY: 240, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 528, iY: 240, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
@@ -370,12 +418,24 @@
 				sName: "Idle"
 				bAnimated: true
 				bLoop: true
-				iFps: 1
+				iFps: 6
 				aFrames:
 				[
 				{
 					sResource: textures/uf_heroes.png
 					cBoundary: {iX: 768, iY: 192, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 816, iY: 192, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 864, iY: 192, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 912, iY: 192, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
@@ -395,12 +455,24 @@
 				sName: "Idle"
 				bAnimated: true
 				bLoop: true
-				iFps: 1
+				iFps: 6
 				aFrames:
 				[
 				{
 					sResource: textures/uf_heroes.png
 					cBoundary: {iX: 960, iY: 528, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1008, iY: 528, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1056, iY: 528, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1104, iY: 528, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
@@ -420,12 +492,24 @@
 				sName: "Idle"
 				bAnimated: true
 				bLoop: true
-				iFps: 1
+				iFps: 6
 				aFrames:
 				[
 				{
 					sResource: textures/uf_heroes.png
 					cBoundary: {iX: 0, iY: 288, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 48, iY: 288, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 96, iY: 288, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 144, iY: 288, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
@@ -445,12 +529,24 @@
 				sName: "Idle"
 				bAnimated: true
 				bLoop: true
-				iFps: 1
+				iFps: 6
 				aFrames:
 				[
 				{
 					sResource: textures/uf_heroes.png
 					cBoundary: {iX: 576, iY: 432, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 624, iY: 432, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 672, iY: 432, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 720, iY: 432, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
@@ -470,12 +566,24 @@
 				sName: "Idle"
 				bAnimated: true
 				bLoop: true
-				iFps: 1
+				iFps: 6
 				aFrames:
 				[
 				{
 					sResource: textures/uf_heroes.png
 					cBoundary: {iX: 1152, iY: 432, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1200, iY: 432, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1248, iY: 432, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1296, iY: 432, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
@@ -495,12 +603,24 @@
 				sName: "Idle"
 				bAnimated: true
 				bLoop: true
-				iFps: 1
+				iFps: 6
 				aFrames:
 				[
 				{
 					sResource: textures/uf_heroes.png
 					cBoundary: {iX: 1344, iY: 432, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1392, iY: 432, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1440, iY: 432, iWidth: 48, iHeight: 48}
+				}
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1488, iY: 432, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
