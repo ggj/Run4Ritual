@@ -53,6 +53,8 @@ GameScene::~GameScene()
 	pTilesetRealist->Release();
 	pTilesetPessimist->Release();
 	gScene = nullptr;
+
+	musTheme.Unload();
 }
 
 bool GameScene::Initialize()
@@ -177,19 +179,22 @@ bool GameScene::Update(f32 dt)
 
 	if (gGameData->sGamePlay.bIsGameOver == true)
 	{
+		Log("Player 1 life: %d", pPlayer1->GetLife());
+		Log("Player 2 life: %d", pPlayer2->GetLife());
+
 		// Veriry if the player has all the reagents or life > 0
 		if ((pPlayer1->IsAmulet() && pPlayer1->IsCrystalBall() && pPlayer1->IsNecronomicon() && pPlayer1->IsRedSkull()) ||
 			(pPlayer1->GetLife() > 0 && pPlayer2->GetLife() <= 0))
 		{
 			pGameOverImg->SetVisible(true);
-			pGameOverImg->SetPosition(pCamera->GetPosition() - vec3(-512.0f, -384.0f, 0.0f));
+			pGameOverImg->SetPosition(pCamera->GetPosition() - vec3(-950.0f, -384.0f, 0.0f));
 
 			pPlayer1->GetSprite()->SetVisible(false);
 		}
 		else
 		{
 			pGameOverImg2->SetVisible(true);
-			pGameOverImg2->SetPosition(pCamera->GetPosition() - vec3(-512.0f, -384.0f, 0.0f));
+			pGameOverImg2->SetPosition(pCamera->GetPosition() - vec3(-950.0f, -384.0f, 0.0f));
 
 			pPlayer2->GetSprite()->SetVisible(false);
 		}
@@ -270,12 +275,9 @@ void GameScene::OnJobCompleted(FileLoader *job)
 
 	if (gGameData->IsBgmEnabled() == true)
 	{
-		musThemeOptimist.Load("sounds/optimist_theme.ogg");
-		musThemeOptimist.SetVolume(1.0f);
-		musThemeRealist.Load("sounds/realist_theme.ogg");
-		musThemeRealist.SetVolume(1.0f);
-		musThemePessimist.Load("sounds/pessimist_theme.ogg");
-		musThemePessimist.SetVolume(1.0f);
+		musTheme.Load("sounds/optimist_theme.ogg");
+		musTheme.SetVolume(1.0f);
+		pSoundSystem->PlayMusic(&musTheme);
 	}
 
 	SceneNode *sounds = (SceneNode *)cScene.GetChildByName("Sounds");
@@ -323,7 +325,7 @@ void GameScene::OnJobCompleted(FileLoader *job)
 	if (pPlayer1 == nullptr)
 	{
 		pPlayer1 = pPlayer4;
-		musCur = &musThemeOptimist;
+		musCur = &musTheme;
 		gGui->SelectEnemy();
 		pSoundSystem->PlayMusic(musCur);
 	}
