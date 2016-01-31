@@ -9,6 +9,7 @@
 class EnemyEntity: public SpriteEntity
 {
 	public:
+		EnemyEntity(const char *className, const char *spriteName);
 		EnemyEntity();
 		virtual ~EnemyEntity();
 
@@ -43,7 +44,7 @@ class EnemyEntity: public SpriteEntity
 
 		void StopToFollow();
 
-	private:
+	protected:
 		PlayerEntity *pTarget;
 		b2Body *pBody;
 		f32 fVelocity;

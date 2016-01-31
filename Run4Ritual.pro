@@ -33,7 +33,11 @@ SOURCES += source/main.cpp \
 	source/entity/crystalballentity.cpp \
 	source/entity/redskullentity.cpp \
 	source/entity/amuletentity.cpp \
-	source/manager/pathfindermanager.cpp
+	source/manager/pathfindermanager.cpp \
+    source/entity/skeletonentity.cpp \
+    source/entity/snakeentity.cpp \
+    source/entity/beetleentity.cpp \
+    source/entity/frogentity.cpp
 
 HEADERS += \
 	source/defines.h \
@@ -72,7 +76,11 @@ HEADERS += \
 	source/entity/crystalballentity.h \
 	source/entity/redskullentity.h \
 	source/entity/amuletentity.h \
-	source/manager/pathfindermanager.h
+	source/manager/pathfindermanager.h \
+    source/entity/skeletonentity.h \
+    source/entity/snakeentity.h \
+    source/entity/beetleentity.h \
+    source/entity/frogentity.h
 
 OTHER_FILES_CONFIG = \
 #Configs

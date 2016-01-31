@@ -261,13 +261,13 @@
 			cPosition: {z: 300}
 			sType: Sprite
 			sBlending: none
-			sName: Enemy
+			sName: Skeleton
 			cColor: {r: 255, g: 255, b: 255, a: 255}
 			bVisible: false
 			aAnimations:
 			[
 			{
-				sName: "SkeletonEnemy"
+				sName: "Idle"
 				bAnimated: true
 				bLoop: true
 				iFps: 1
@@ -276,6 +276,81 @@
 				{
 					sResource: textures/uf_heroes.png
 					cBoundary: {iX: 0, iY: 144, iWidth: 48, iHeight: 48}
+				}
+				]
+			}
+			]
+		}
+		{
+			cScale: {x: 1, y: 1, z: 1}
+			cPosition: {z: 300}
+			sType: Sprite
+			sBlending: none
+			sName: Frog
+			cColor: {r: 255, g: 255, b: 255, a: 255}
+			bVisible: false
+			aAnimations:
+			[
+			{
+				sName: "Idle"
+				bAnimated: true
+				bLoop: true
+				iFps: 1
+				aFrames:
+				[
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 576, iY: 576, iWidth: 48, iHeight: 48}
+				}
+				]
+			}
+			]
+		}
+		{
+			cScale: {x: 1, y: 1, z: 1}
+			cPosition: {z: 300}
+			sType: Sprite
+			sBlending: none
+			sName: Beetle
+			cColor: {r: 255, g: 255, b: 255, a: 255}
+			bVisible: false
+			aAnimations:
+			[
+			{
+				sName: "Idle"
+				bAnimated: true
+				bLoop: true
+				iFps: 1
+				aFrames:
+				[
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 768, iY: 480, iWidth: 48, iHeight: 48}
+				}
+				]
+			}
+			]
+		}
+		{
+			cScale: {x: 1, y: 1, z: 1}
+			cPosition: {z: 300}
+			sType: Sprite
+			sBlending: none
+			sName: Snake
+			cColor: {r: 255, g: 255, b: 255, a: 255}
+			bVisible: false
+			aAnimations:
+			[
+			{
+				sName: "Idle"
+				bAnimated: true
+				bLoop: true
+				iFps: 1
+				aFrames:
+				[
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 960, iY: 528, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
