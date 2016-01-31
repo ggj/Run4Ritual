@@ -20,7 +20,7 @@ EnemyEntity::EnemyEntity()
 	, bIsPlayerFound(false)
 	, cPath()
 {
-	fVelocity = 0.15f;
+	fVelocity = 0.55f;
 	sEnemy.displayName = "Enemy";
 }
 
@@ -71,7 +71,7 @@ void EnemyEntity::Load(MetadataObject &metadata, SceneNode *sprites)
 	else
 		sEnemy.iLifeTotal = 5;
 
-	b2Vec2 customSize(48, 48);
+	b2Vec2 customSize(16, 16);
 
 	pBody = gPhysics->CreateBody(pSprite, &customSize);
 	pBody->SetFixedRotation(true);
@@ -81,7 +81,7 @@ void EnemyEntity::Load(MetadataObject &metadata, SceneNode *sprites)
 void EnemyEntity::Update(f32 dt)
 {
 	if (!pBody)
-		return;
+	//	return;
 
 	//b2Vec2 vel = pBody->GetLinearVelocity();
 	//pBody->SetLinearVelocity(vel);
@@ -110,7 +110,7 @@ void EnemyEntity::Update(f32 dt)
 
 		if (bPlayerLock)
 		{
-			if (distance > 1.5f)
+			if (distance > 2.0f)
 			{
 				Log("Perdeu o player");
 				this->StopToFollow();
@@ -122,9 +122,9 @@ void EnemyEntity::Update(f32 dt)
 		}
 		else
 		{
-			if (distance <= 1.5f)
+			if (distance <= 2.0f)
 			{
-				Log("Perdeu o player");
+				Log("Achou o player");
 				bPlayerLock = true;
 			}
 		}
@@ -165,7 +165,12 @@ void EnemyEntity::FindPathToPlayer()
 	bIsPlayerFound = false;
 
 	if (cPath.GetDirectionSteps().empty())
+	{
+		pTarget = static_cast<Player3Entity *>(gWorldManager->FindEntityByClassName("Player3"));
+
+		Log("Nao esta achando as direcoes para o player");
 		return;
+	}
 
 	// Find the steps to follow
 	auto dir = cPath.GetDirectionSteps().top();
@@ -196,21 +201,21 @@ void EnemyEntity::OnCollision(const CollisionEvent &event)
 			(other != nullptr && other->GetClassName() == "Player3") ||
 			(other != nullptr && other->GetClassName() == "Player4"))
 		{
-			Player1Entity *player = static_cast<Player1Entity *>(other);
+			//Player1Entity *player = static_cast<Player1Entity *>(other);
 
-			s32 damageToPlayer = (player->GetDefensePower() - sEnemy.iAttackPower) + (rand() % 3 + 1);
-			if (damageToPlayer < 0)
-				damageToPlayer = 0;
+			//s32 damageToPlayer = (player->GetDefensePower() - sEnemy.iAttackPower) + (rand() % 3 + 1);
+			//if (damageToPlayer < 0)
+			//	damageToPlayer = 0;
 
 			//Do damage to the player
 			//player->OnDamage(vecToPush, u32(damageToPlayer));
 
-			s32 damageEnemyBase = player->GetAttackPower() - sEnemy.iDefensePower + (rand() % 3 + 1);
-			if (damageEnemyBase < 0)
-				damageEnemyBase = 0;
+			//s32 damageEnemyBase = player->GetAttackPower() - sEnemy.iDefensePower + (rand() % 3 + 1);
+			//if (damageEnemyBase < 0)
+			//	damageEnemyBase = 0;
 
 			//Receive damage
-			this->OnDamage(u32(damageEnemyBase));
+			//this->OnDamage(u32(damageEnemyBase));
 		}
 	}
 }
