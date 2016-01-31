@@ -41,9 +41,12 @@ class EnemyEntity: public SpriteEntity
 		u32 GetLife() const;
 		void SetLife(u32 life);
 
+		void StopToFollow();
+
 	private:
 		PlayerEntity *pTarget;
 		b2Body *pBody;
+		f32 fVelocity;
 		CollisionSensor clSensor;
 		f32 fInvicibleTime;
 		bool bPlayerLock;
