@@ -2,6 +2,7 @@
 #define _PLAYER1_ENTITY_H
 
 #include "playerentity.h"
+#include "../manager/guimanager.h"
 
 class Player1Entity: public PlayerEntity
 {
@@ -15,6 +16,15 @@ class Player1Entity: public PlayerEntity
 		bool OnInputKeyboardRelease(const EventInputKeyboard *ev) override;
 
 		void Update(f32 dt) override;
+		void Attack();
+
+		inline void SetLife(const u32 life)
+		{
+			sPlayer.iLife = life;
+			gGui->SetP1Life(life);
+		}
+
+		bool OnDamage(const b2Vec2 vec2Push, u32 amount);
 };
 
 #endif // _PLAYER1_ENTITY_H

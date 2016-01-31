@@ -311,7 +311,6 @@ void GameScene::OnJobCompleted(FileLoader *job)
 	{
 		pPlayer1 = pPlayer4;
 		musCur = &musThemeOptimist;
-		gGui->SelectHero("Optimist");
 		gGui->SelectEnemy();
 		pSoundSystem->PlayMusic(musCur);
 	}

@@ -106,30 +106,3 @@ void DeathEntity::Activate()
 	gSoundManager->Play(SND_WAKEUP);
 }
 
-void DeathEntity::OnCollision(const CollisionEvent &event)
-{
-	if (event.GetType() == CollisionEventType::OnEnter)
-	{
-		Log("DeathEntity colidiu");
-
-		Entity *other = event.GetOtherEntity();
-		if (other != NULL && other->GetClassName() == "Player")
-		{
-			PlayerEntity *player = static_cast<PlayerEntity *>(other);
-			if (player->GetItem() == ItemTypes::Text)
-			{
-				gSoundManager->Play(SND_POWERUP);
-				player->SetItem(ItemTypes::None);
-				fSleep = fSleepConfig;
-			}
-			else if (fSleep <= 0)
-			{
-				if (player->OnDamage(b2Vec2(0, 0), 0))
-				{
-					gSoundManager->Play(SND_DAMAGE);
-					//gGameScene->RemoveLife();
-				}
-			}
-		}
-	}
-}

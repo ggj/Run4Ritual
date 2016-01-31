@@ -119,8 +119,23 @@ bool GuiManager::LoadGUI(const String &doc)
 			if (pDoc->GetElementById("gold") != nullptr)
 				pElementGold = pDoc->GetElementById("gold");
 
-			if (pDoc->GetElementById("life") != nullptr)
-				pElementLife = pDoc->GetElementById("life");
+			if (pDoc->GetElementById("hearth1_p1_div") != nullptr &&
+					pDoc->GetElementById("hearth2_p1_div") != nullptr &&
+					pDoc->GetElementById("hearth3_p1_div") != nullptr)
+			{
+				pElementLifeP1[0] = pDoc->GetElementById("hearth1_p1_div");
+				pElementLifeP1[1] = pDoc->GetElementById("hearth2_p1_div");
+				pElementLifeP1[2] = pDoc->GetElementById("hearth3_p1_div");
+			}
+
+			if (pDoc->GetElementById("hearth1_p2_div") != nullptr &&
+					pDoc->GetElementById("hearth2_p2_div") != nullptr &&
+					pDoc->GetElementById("hearth3_p2_div") != nullptr)
+			{
+				pElementLifeP2[0] = pDoc->GetElementById("hearth1_p2_div");
+				pElementLifeP2[1] = pDoc->GetElementById("hearth2_p2_div");
+				pElementLifeP2[2] = pDoc->GetElementById("hearth3_p2_div");
+			}
 
 			if (pDoc->GetElementById("stamina") != nullptr)
 				pElementStamina = pDoc->GetElementById("stamina");
@@ -142,13 +157,6 @@ bool GuiManager::LoadGUI(const String &doc)
 
 			if (pDoc->GetElementById("dialog") != nullptr)
 				pDialog = pDoc->GetElementById("dialog");
-
-			if (pDoc->GetElementById("avatar_a") != nullptr && pDoc->GetElementById("avatar_b") != nullptr && pDoc->GetElementById("avatar_c") != nullptr)
-			{
-				pHeroPicture[0] = pDoc->GetElementById("avatar_a");
-				pHeroPicture[1] = pDoc->GetElementById("avatar_b");
-				pHeroPicture[2] = pDoc->GetElementById("avatar_c");
-			}
 
 			if (pDoc->GetElementById("sfx") != nullptr && gGameData->IsSfxEnabled())
 				pDoc->GetElementById("sfx")->SetAttribute("checked", "");
@@ -312,28 +320,6 @@ void GuiManager::SetDialog(const String &text)
 	pDialog->SetInnerRML(Rocket::Core::String(text.c_str()));
 }
 
-void GuiManager::SelectHero(const String &name)
-{
-	if (name == "Optimist")
-	{
-		pHeroPicture[0]->SetClassNames("avatar_pessimist_off");
-		pHeroPicture[1]->SetClassNames("avatar_optimist_on");
-		pHeroPicture[2]->SetClassNames("avatar_realist_off");
-	}
-	if (name == "Realist")
-	{
-		pHeroPicture[0]->SetClassNames("avatar_optimist_off");
-		pHeroPicture[1]->SetClassNames("avatar_realist_on");
-		pHeroPicture[2]->SetClassNames("avatar_pessimist_off");
-	}
-	if (name == "Pessimist")
-	{
-		pHeroPicture[0]->SetClassNames("avatar_realist_off");
-		pHeroPicture[1]->SetClassNames("avatar_pessimist_on");
-		pHeroPicture[2]->SetClassNames("avatar_optimist_off");
-	}
-}
-
 void GuiManager::SelectEnemy(const String &hero, u32 enemyId)
 {
 	if (hero == "Optimist") {
@@ -428,11 +414,14 @@ void GuiManager::SetGold(u32 gold)
 	pElementGold->SetInnerRML(Rocket::Core::String(x));
 }
 
-void GuiManager::SetLife(u32 life, u32 lifeTotal)
+void GuiManager::SetP1Life(u32 life)
 {
-	char x[100];
-	snprintf(x, 100, "%d / %d", life, lifeTotal);
-	pElementLife->SetInnerRML(Rocket::Core::String(x));
+	pElementLifeP1[life]->SetClassNames("hearthDisabled");
+}
+
+void GuiManager::SetP2Life(u32 life)
+{
+	pElementLifeP2[life]->SetClassNames("hearthDisabled");
 }
 
 void GuiManager::SetEnemyLife(u32 life, u32 lifeTotal)

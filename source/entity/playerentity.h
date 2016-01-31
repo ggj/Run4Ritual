@@ -40,11 +40,10 @@ class PlayerEntity: public SpriteEntity,
 		ItemTypes::Enum GetItem() const;
 
 		void Teleport(const b2Vec2 &position);
-		bool OnDamage(const b2Vec2 vec2Push, u32 amount);
+		virtual bool OnDamage(const b2Vec2 vec2Push, u32 amount);
 		void OnCollect(ItemTypes::Enum item, u32 amount);
 
 		void StopPlayerMovement();
-		void Attack();
 
 		void SetIsActive(bool isActive);
 		bool GetIsActive();
@@ -67,7 +66,6 @@ class PlayerEntity: public SpriteEntity,
 		void SetGold(u32);
 
 		u32 GetLife() const;
-		void SetLife(u32);
 		void RemoveLife();
 
 		u32 GetLifeTotal() const;

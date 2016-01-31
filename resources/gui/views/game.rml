@@ -9,17 +9,17 @@
 				<div class="topLeft">
 					<p id="player_status">
 						<h1 id="player1_header">Player 1</h1>
-						<div id="hearth_p1_div" class="hearth"/>
-						<div id="hearth_p1_div" class="hearth"/>
-						<div id="hearth_p1_div" class="hearth"/>
+						<div id="hearth1_p1_div" class="hearth"/>
+						<div id="hearth2_p1_div" class="hearth"/>
+						<div id="hearth3_p1_div" class="hearth"/>
 					</p>
 				</div>
 				<div class="topRight">
 					<p id="player_status">
 						<h1 id="player2_header">Player 2</h1>
-						<div id="hearth_p2_div" class="hearth"/>
-						<div id="hearth_p2_div" class="hearth"/>
-						<div id="hearth_p2_div" class="hearth"/>
+						<div id="hearth1_p2_div" class="hearth"/>
+						<div id="hearth2_p2_div" class="hearth"/>
+						<div id="hearth3_p2_div" class="hearth"/>
 					</p>
 				</div>
 			</div>

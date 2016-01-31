@@ -194,12 +194,6 @@ void PlayerEntity::StopPlayerMovement()
 	fMove = 0;
 }
 
-void PlayerEntity::Attack()
-{
-	Log("%s: Attack", pTarget->GetClassName().c_str());
-	pTarget->OnDamage(b2Vec2(0, 0), 0);
-}
-
 bool PlayerEntity::GetIsActive()
 {
 	return bIsActive;
@@ -257,11 +251,7 @@ u32 PlayerEntity::GetLife() const
 {
 	return sPlayer.iLife;
 }
-void PlayerEntity::SetLife(const u32 life)
-{
-	sPlayer.iLife = life;
-	gGui->SetLife(life, this->sPlayer.iLifeTotal);
-}
+
 void PlayerEntity::RemoveLife()
 {
 	sPlayer.iLife--;
@@ -357,31 +347,6 @@ void PlayerEntity::SetCrystalBall(bool crystalBall)
 	sPlayer.bCrystalBall = crystalBall;
 }
 
-bool PlayerEntity::OnDamage(const b2Vec2 vec2Push, u32 amount)
-{
-	// Play damage sound
-	gSoundManager->Play(SND_DAMAGE);
-
-	pImpactFX->SetVisible(true);
-	pSprite->SetAnimation("SingleSlash");
-
-	// Create the ghost effect
-	if (fInvicibleTime > 0)
-		return false;
-
-	fInvicibleTime = 1.0f;
-	//pText->SetVisible(true);
-
-	// Receive the damage
-	u32 life = this->GetLife() - amount;
-
-	if ((int)life > 1)
-		this->SetLife(life);
-	else
-		gGameData->SetIsGameOver(true);
-
-	return true;
-}
 
 void PlayerEntity::OnCollect(ItemTypes::Enum item, u32 amount)
 {
@@ -436,4 +401,11 @@ void PlayerEntity::OnCollision(const CollisionEvent &event)
 				gGameData->SetIsGameOver(true);
 		}
 	}
+}
+
+bool PlayerEntity::OnDamage(const b2Vec2 vec2Push, u32 amount)
+{
+	UNUSED(vec2Push)
+	UNUSED(amount)
+	return false;
 }
