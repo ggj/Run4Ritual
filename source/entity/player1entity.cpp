@@ -118,7 +118,7 @@ void Player1Entity::Update(f32 dt)
 
 	// Search a nerby player
 	if (pTarget == nullptr)
-		pTarget = static_cast<PlayerEntity *>(gWorldManager->FindEntityByClassName("Player3"));
+		pTarget = static_cast<PlayerEntity *>(gWorldManager->FindEntityByClassName("Player2"));
 
 	if (pTarget != nullptr)
 	{
