@@ -93,7 +93,7 @@ void EnemyEntity::Load(MetadataObject &metadata, SceneNode *sprites)
 
 void EnemyEntity::Update(f32 dt)
 {
-	if (!pBody)
+	//if (!pBody)
 	//	return;
 
 	//b2Vec2 vel = pBody->GetLinearVelocity();

@@ -16,8 +16,8 @@ FrogEntity::FrogEntity()
 
 void FrogEntity::Update(f32 dt)
 {
-	if (!pBody)
-		return;
+	//if (!pBody)
+		//return;
 
 	if (fInvicibleTime > 0)
 	{

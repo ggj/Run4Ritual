@@ -16,8 +16,8 @@ SkeletonEntity::SkeletonEntity()
 
 void SkeletonEntity::Update(f32 dt)
 {
-	if (!pBody)
-		return;
+	//if (!pBody)
+		//return;
 
 	if (fInvicibleTime > 0)
 	{

@@ -16,8 +16,8 @@ BeetleEntity::BeetleEntity()
 
 void BeetleEntity::Update(f32 dt)
 {
-	if (!pBody)
-		return;
+	//if (!pBody)
+		//return;
 
 	if (fInvicibleTime > 0)
 	{

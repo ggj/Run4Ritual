@@ -37,7 +37,13 @@ SOURCES += source/main.cpp \
 	source/entity/skeletonentity.cpp \
 	source/entity/snakeentity.cpp \
 	source/entity/beetleentity.cpp \
-	source/entity/frogentity.cpp
+	source/entity/frogentity.cpp \
+    source/entity/batentity.cpp \
+    source/entity/wolfentity.cpp \
+    source/entity/zombieentity.cpp \
+    source/entity/mummyentity.cpp \
+    source/entity/firegolementity.cpp \
+    source/entity/rockgolementity.cpp
 
 HEADERS += \
 	source/defines.h \
@@ -80,7 +86,13 @@ HEADERS += \
 	source/entity/skeletonentity.h \
 	source/entity/snakeentity.h \
 	source/entity/beetleentity.h \
-	source/entity/frogentity.h
+	source/entity/frogentity.h \
+    source/entity/batentity.h \
+    source/entity/wolfentity.h \
+    source/entity/zombieentity.h \
+    source/entity/mummyentity.h \
+    source/entity/firegolementity.h \
+    source/entity/rockgolementity.h
 
 OTHER_FILES_CONFIG = \
 #Configs

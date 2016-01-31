@@ -336,6 +336,56 @@
 			cPosition: {z: 300}
 			sType: Sprite
 			sBlending: none
+			sName: Zombie
+			cColor: {r: 255, g: 255, b: 255, a: 255}
+			bVisible: false
+			aAnimations:
+			[
+			{
+				sName: "Idle"
+				bAnimated: true
+				bLoop: true
+				iFps: 1
+				aFrames:
+				[
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 384, iY: 240, iWidth: 48, iHeight: 48}
+				}
+				]
+			}
+			]
+		}
+		{
+			cScale: {x: 1, y: 1, z: 1}
+			cPosition: {z: 300}
+			sType: Sprite
+			sBlending: none
+			sName: Bat
+			cColor: {r: 255, g: 255, b: 255, a: 255}
+			bVisible: false
+			aAnimations:
+			[
+			{
+				sName: "Idle"
+				bAnimated: true
+				bLoop: true
+				iFps: 1
+				aFrames:
+				[
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 768, iY: 192, iWidth: 48, iHeight: 48}
+				}
+				]
+			}
+			]
+		}
+		{
+			cScale: {x: 1, y: 1, z: 1}
+			cPosition: {z: 300}
+			sType: Sprite
+			sBlending: none
 			sName: Snake
 			cColor: {r: 255, g: 255, b: 255, a: 255}
 			bVisible: false
@@ -351,6 +401,106 @@
 				{
 					sResource: textures/uf_heroes.png
 					cBoundary: {iX: 960, iY: 528, iWidth: 48, iHeight: 48}
+				}
+				]
+			}
+			]
+		}
+		{
+			cScale: {x: 1, y: 1, z: 1}
+			cPosition: {z: 300}
+			sType: Sprite
+			sBlending: none
+			sName: Wolf
+			cColor: {r: 255, g: 255, b: 255, a: 255}
+			bVisible: false
+			aAnimations:
+			[
+			{
+				sName: "Idle"
+				bAnimated: true
+				bLoop: true
+				iFps: 1
+				aFrames:
+				[
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 0, iY: 288, iWidth: 48, iHeight: 48}
+				}
+				]
+			}
+			]
+		}
+		{
+			cScale: {x: 1, y: 1, z: 1}
+			cPosition: {z: 300}
+			sType: Sprite
+			sBlending: none
+			sName: Mummy
+			cColor: {r: 255, g: 255, b: 255, a: 255}
+			bVisible: false
+			aAnimations:
+			[
+			{
+				sName: "Idle"
+				bAnimated: true
+				bLoop: true
+				iFps: 1
+				aFrames:
+				[
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 576, iY: 432, iWidth: 48, iHeight: 48}
+				}
+				]
+			}
+			]
+		}
+		{
+			cScale: {x: 1, y: 1, z: 1}
+			cPosition: {z: 300}
+			sType: Sprite
+			sBlending: none
+			sName: FireGolem
+			cColor: {r: 255, g: 255, b: 255, a: 255}
+			bVisible: false
+			aAnimations:
+			[
+			{
+				sName: "Idle"
+				bAnimated: true
+				bLoop: true
+				iFps: 1
+				aFrames:
+				[
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1152, iY: 432, iWidth: 48, iHeight: 48}
+				}
+				]
+			}
+			]
+		}
+		{
+			cScale: {x: 1, y: 1, z: 1}
+			cPosition: {z: 300}
+			sType: Sprite
+			sBlending: none
+			sName: RockGolem
+			cColor: {r: 255, g: 255, b: 255, a: 255}
+			bVisible: false
+			aAnimations:
+			[
+			{
+				sName: "Idle"
+				bAnimated: true
+				bLoop: true
+				iFps: 1
+				aFrames:
+				[
+				{
+					sResource: textures/uf_heroes.png
+					cBoundary: {iX: 1344, iY: 432, iWidth: 48, iHeight: 48}
 				}
 				]
 			}

@@ -1,20 +1,20 @@
-#include "snakeentity.h"
+#include "zombieentity.h"
 #include "entityfactory.h"
 #include "../scene/gamescene.h"
 #include "../util/sounds.h"
 #include "../manager/guimanager.h"
 #include <cmath>
 
-ENTITY_CREATOR("Snake", SnakeEntity)
+ENTITY_CREATOR("Zombie", ZombieEntity)
 
-SnakeEntity::SnakeEntity()
-	: EnemyEntity("Snake", "Snake")
+ZombieEntity::ZombieEntity()
+	: EnemyEntity("Zombie", "Zombie")
 {
 	fVelocity = 0.55f;
-	sEnemy.displayName = "Frog";
+	sEnemy.displayName = "Zombie";
 }
 
-void SnakeEntity::Update(f32 dt)
+void ZombieEntity::Update(f32 dt)
 {
 	//if (!pBody)
 		//return;
@@ -33,7 +33,7 @@ void SnakeEntity::Update(f32 dt)
 
 	// Search a nerby player
 	if (pTarget == nullptr)
-		pTarget = static_cast<Player2Entity *>(gWorldManager->FindEntityByClassName("Player2"));
+		pTarget = static_cast<Player1Entity *>(gWorldManager->FindEntityByClassName("Player1"));
 	if (pTarget == nullptr)
 		pTarget = static_cast<Player3Entity *>(gWorldManager->FindEntityByClassName("Player3"));
 	if (pTarget == nullptr)
@@ -68,5 +68,3 @@ void SnakeEntity::Update(f32 dt)
 
 	}
 }
-
-

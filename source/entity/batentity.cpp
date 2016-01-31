@@ -1,20 +1,20 @@
-#include "snakeentity.h"
+#include "batentity.h"
 #include "entityfactory.h"
 #include "../scene/gamescene.h"
 #include "../util/sounds.h"
 #include "../manager/guimanager.h"
 #include <cmath>
 
-ENTITY_CREATOR("Snake", SnakeEntity)
+ENTITY_CREATOR("Bat", BatEntity)
 
-SnakeEntity::SnakeEntity()
-	: EnemyEntity("Snake", "Snake")
+BatEntity::BatEntity()
+	: EnemyEntity("Bat", "Bat")
 {
 	fVelocity = 0.55f;
-	sEnemy.displayName = "Frog";
+	sEnemy.displayName = "Bat";
 }
 
-void SnakeEntity::Update(f32 dt)
+void BatEntity::Update(f32 dt)
 {
 	//if (!pBody)
 		//return;
@@ -33,9 +33,9 @@ void SnakeEntity::Update(f32 dt)
 
 	// Search a nerby player
 	if (pTarget == nullptr)
-		pTarget = static_cast<Player2Entity *>(gWorldManager->FindEntityByClassName("Player2"));
+		pTarget = static_cast<Player1Entity *>(gWorldManager->FindEntityByClassName("Player1"));
 	if (pTarget == nullptr)
-		pTarget = static_cast<Player3Entity *>(gWorldManager->FindEntityByClassName("Player3"));
+		pTarget = static_cast<Player2Entity *>(gWorldManager->FindEntityByClassName("Player2"));
 	if (pTarget == nullptr)
 		pTarget = static_cast<Player4Entity *>(gWorldManager->FindEntityByClassName("Player4"));
 
@@ -68,5 +68,4 @@ void SnakeEntity::Update(f32 dt)
 
 	}
 }
-
 
