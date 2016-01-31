@@ -27,19 +27,19 @@
 				[
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 576, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1728, iY: 288, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 624, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1776, iY: 288, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 672, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1824, iY: 288, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 720, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1872, iY: 288, iWidth: 48, iHeight: 48}
 					}
 				]
 			}
@@ -51,16 +51,20 @@
 				aFrames:
 				[
 					{
-						sResource: textures/archer_1.png
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 1728, iY: 288, iWidth: 48, iHeight: 48}
 					}
 					{
-						sResource: textures/archer_2.png
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 1776, iY: 288, iWidth: 48, iHeight: 48}
 					}
 					{
-						sResource: textures/archer_3.png
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 1824, iY: 288, iWidth: 48, iHeight: 48}
 					}
 					{
-						sResource: textures/archer_4.png
+						sResource: textures/uf_heroes.png
+						cBoundary: {iX: 1872, iY: 288, iWidth: 48, iHeight: 48}
 					}
 				]
 			}
@@ -85,19 +89,19 @@
 				[
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 960, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1344, iY: 240, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 1008, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1392, iY: 240, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 1056, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1440, iY: 240, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 1104, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1488, iY: 240, iWidth: 48, iHeight: 48}
 					}
 				]
 			}
@@ -110,19 +114,19 @@
 				[
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 960, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1344, iY: 240, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 1008, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1392, iY: 240, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 1056, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1440, iY: 240, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 1104, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1488, iY: 240, iWidth: 48, iHeight: 48}
 					}
 				]
 			}
@@ -147,19 +151,19 @@
 				[
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 384, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1728, iY: 240, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 432, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1776, iY: 240, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 480, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1824, iY: 240, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 528, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1872, iY: 240, iWidth: 48, iHeight: 48}
 					}
 				]
 			}
@@ -172,19 +176,19 @@
 				[
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 384, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1728, iY: 240, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 432, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1776, iY: 240, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 480, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1824, iY: 240, iWidth: 48, iHeight: 48}
 					}
 					{
 						sResource: textures/uf_heroes.png
-						cBoundary: {iX: 528, iY: 0, iWidth: 48, iHeight: 48}
+						cBoundary: {iX: 1872, iY: 240, iWidth: 48, iHeight: 48}
 					}
 				]
 			}
@@ -209,19 +213,19 @@
 				[
 				{
 					sResource: textures/uf_heroes.png
-					cBoundary: {iX: 1344, iY: 0, iWidth: 48, iHeight: 48}
+					cBoundary: {iX: 768, iY: 432, iWidth: 48, iHeight: 48}
 				}
 				{
 					sResource: textures/uf_heroes.png
-					cBoundary: {iX: 1392, iY: 0, iWidth: 48, iHeight: 48}
+					cBoundary: {iX: 816, iY: 432, iWidth: 48, iHeight: 48}
 				}
 				{
 					sResource: textures/uf_heroes.png
-					cBoundary: {iX: 1440, iY: 0, iWidth: 48, iHeight: 48}
+					cBoundary: {iX: 864, iY: 432, iWidth: 48, iHeight: 48}
 				}
 				{
 					sResource: textures/uf_heroes.png
-					cBoundary: {iX: 1488, iY: 0, iWidth: 48, iHeight: 48}
+					cBoundary: {iX: 912, iY: 432, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
@@ -234,19 +238,19 @@
 				[
 				{
 					sResource: textures/uf_heroes.png
-					cBoundary: {iX: 1344, iY: 0, iWidth: 48, iHeight: 48}
+					cBoundary: {iX: 768, iY: 432, iWidth: 48, iHeight: 48}
 				}
 				{
 					sResource: textures/uf_heroes.png
-					cBoundary: {iX: 1392, iY: 0, iWidth: 48, iHeight: 48}
+					cBoundary: {iX: 816, iY: 432, iWidth: 48, iHeight: 48}
 				}
 				{
 					sResource: textures/uf_heroes.png
-					cBoundary: {iX: 1440, iY: 0, iWidth: 48, iHeight: 48}
+					cBoundary: {iX: 864, iY: 432, iWidth: 48, iHeight: 48}
 				}
 				{
 					sResource: textures/uf_heroes.png
-					cBoundary: {iX: 1488, iY: 0, iWidth: 48, iHeight: 48}
+					cBoundary: {iX: 912, iY: 432, iWidth: 48, iHeight: 48}
 				}
 				]
 			}
