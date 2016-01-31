@@ -34,31 +34,31 @@ bool Player2Entity::OnInputKeyboardPress(const EventInputKeyboard *ev)
 
 //		b2Vec2 vel = pBody->GetLinearVelocity();
 
-		if (k == eKey::W)
+		if (k == eKey::Up)
 		{
 			SetState(Runing);
 			fUpDownMove = -1;
 		}
 
-		if (k == eKey::A)
+		if (k == eKey::Left)
 		{
 			SetState(Runing);
 			fMove = -1;
 		}
 
-		if (k == eKey::D)
+		if (k == eKey::Right)
 		{
 			SetState(Runing);
 			fMove = 1;
 		}
 
-		if (k == eKey::S)
+		if (k == eKey::Down)
 		{
 			SetState(Runing);
 			fUpDownMove = 1;
 		}
 
-		if(k == eKey::E && bIsTargetReachable)
+		if(k == eKey::Enter && bIsTargetReachable)
 		{
 			SetState(Attacking);
 			Attack();
@@ -79,25 +79,25 @@ bool Player2Entity::OnInputKeyboardRelease(const EventInputKeyboard *ev)
 		vel.y = 0;
 
 		// Remove the directions
-		if (k == eKey::W)
+		if (k == eKey::Up)
 		{
 			pBody->SetLinearVelocity(vel);
 			fUpDownMove = 0;
 		}
 
-		if (k == eKey::A)
+		if (k == eKey::Left)
 		{
 			pBody->SetLinearVelocity(vel);
 			fMove = 0;
 		}
 
-		if (k == eKey::D)
+		if (k == eKey::Right)
 		{
 			pBody->SetLinearVelocity(vel);
 			fMove = 0;
 		}
 
-		if (k == eKey::S)
+		if (k == eKey::Down)
 		{
 			pBody->SetLinearVelocity(vel);
 			fUpDownMove = 0;
@@ -159,10 +159,9 @@ bool Player2Entity::OnDamage(const b2Vec2 vec2Push, u32 amount)
 
 	// Receive the damage
 	u32 life = this->GetLife() - amount;
+	this->SetLife(life);
 
-	if ((int)life > 0)
-		this->SetLife(life);
-	else
+	if ((int)life <= 0)
 		gGameData->SetIsGameOver(true);
 
 	return true;

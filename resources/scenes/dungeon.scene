@@ -611,28 +611,28 @@
 		sType: Image
 		sName: GameOverImage
 		sResource: textures/background_gameover.png
-		cPosition: {z: 2000}
+		cPosition: {x: 0, y: 0, z: 2000}
 		bVisible: false
 	}
 	{
 		sType: Image
 		sName: GameOverImage2
 		sResource: textures/background_gameover2.png
-		cPosition: {z: 2000}
+		cPosition: {x: 0, y: 0, z: 2000}
 		bVisible: false
 	}
 	{
 		sType: Image
 		sName: GameOverImage3
 		sResource: textures/background_gameover3.png
-		cPosition: {z: 2000}
+		cPosition: {x: 0, y: 0, z: 2000}
 		bVisible: false
 	}
 	{
 		sType: Image
 		sName: GameOverImage4
 		sResource: textures/background_gameover4.png
-		cPosition: {z: 2000}
+		cPosition: {x: 0, y: 0, z: 2000}
 		bVisible: false
 	}
 	]

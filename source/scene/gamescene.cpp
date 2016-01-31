@@ -179,19 +179,22 @@ bool GameScene::Update(f32 dt)
 
 	if (gGameData->sGamePlay.bIsGameOver == true)
 	{
+		Log("Player 1 life: %d", pPlayer1->GetLife());
+		Log("Player 2 life: %d", pPlayer2->GetLife());
+
 		// Veriry if the player has all the reagents or life > 0
 		if ((pPlayer1->IsAmulet() && pPlayer1->IsCrystalBall() && pPlayer1->IsNecronomicon() && pPlayer1->IsRedSkull()) ||
 			(pPlayer1->GetLife() > 0 && pPlayer2->GetLife() <= 0))
 		{
 			pGameOverImg->SetVisible(true);
-			pGameOverImg->SetPosition(pCamera->GetPosition() - vec3(-512.0f, -384.0f, 0.0f));
+			pGameOverImg->SetPosition(pCamera->GetPosition() - vec3(-950.0f, -384.0f, 0.0f));
 
 			pPlayer1->GetSprite()->SetVisible(false);
 		}
 		else
 		{
 			pGameOverImg2->SetVisible(true);
-			pGameOverImg2->SetPosition(pCamera->GetPosition() - vec3(-512.0f, -384.0f, 0.0f));
+			pGameOverImg2->SetPosition(pCamera->GetPosition() - vec3(-950.0f, -384.0f, 0.0f));
 
 			pPlayer2->GetSprite()->SetVisible(false);
 		}
