@@ -278,7 +278,7 @@ void GameScene::OnJobCompleted(FileLoader *job)
 	game->SetVisible(false);
 
 	// Initialize the pathfinder with the background and collider layers
-	clPathfinderManager.Init(pGameMap->GetLayerByName("Background")->AsTiled());
+	clPathfinderManager.Init(pGameMap->GetLayerByName("Navmesh")->AsTiled());
 
 	for (unsigned i = 0, len = game->Size(); i < len; ++i)
 	{
