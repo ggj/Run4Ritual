@@ -44,7 +44,7 @@ div#main
 	text-align: center;
 }
 
-div#hearth_p1_div
+div#hearth1_p1_div
 {
 	display: block;
 	position: relative;
@@ -55,7 +55,29 @@ div#hearth_p1_div
 	height: 24px;
 }
 
-div#hearth_p2_div
+div#hearth2_p1_div
+{
+	display: block;
+	position: relative;
+	float: left;
+	left: 6px;
+	top: 6px;
+	width: 32px;
+	height: 24px;
+}
+
+div#hearth3_p1_div
+{
+	display: block;
+	position: relative;
+	float: left;
+	left: 6px;
+	top: 6px;
+	width: 32px;
+	height: 24px;
+}
+
+div#hearth1_p2_div
 {
 	display: block;
 	position: relative;
@@ -66,13 +88,24 @@ div#hearth_p2_div
 	height: 24px;
 }
 
-div#hearth_p3_div
+div#hearth2_p2_div
 {
 	display: block;
 	position: relative;
-	float: left;
-	left: 6px;
-	bottom: 6px;
+	float: right;
+	right: 6px;
+	top: 6px;
+	width: 32px;
+	height: 24px;
+}
+
+div#hearth3_p2_div
+{
+	display: block;
+	position: relative;
+	float: right;
+	right: 6px;
+	top: 6px;
 	width: 32px;
 	height: 24px;
 }
@@ -81,6 +114,14 @@ div#hearth_p3_div
 {
 	background-decorator: image;
 	background-image: /textures/uf_interface.png 104px 9px 119px 22px;
+	width: 100px;
+	height: 100px;
+}
+
+.hearthDisabled
+{
+	background-decorator: image;
+	background-image: /textures/uf_interface.png 136px 9px 151px 22px;
 	width: 100px;
 	height: 100px;
 }

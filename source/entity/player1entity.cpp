@@ -1,6 +1,8 @@
 #include "player1entity.h"
 #include "entityfactory.h"
 #include "../scene/gamescene.h"
+#include "../util/sounds.h"
+#include "../gameflow.h"
 
 ENTITY_CREATOR("Player1", Player1Entity)
 
@@ -16,7 +18,7 @@ Player1Entity::Player1Entity()
 	sPlayer.iAttackPower = 10;
 	sPlayer.iDefensePower = 10;
 	sPlayer.iGold = 0;
-	sPlayer.iLife = 22;
+	sPlayer.iLife = 3;
 	sPlayer.iLifeTotal = 22;
 	sPlayer.iStamina = 10;
 	sPlayer.iStaminaTotal = 10;
@@ -116,7 +118,7 @@ void Player1Entity::Update(f32 dt)
 
 	// Search a nerby player
 	if (pTarget == nullptr)
-		pTarget = static_cast<PlayerEntity *>(gWorldManager->FindEntityByClassName("Player3"));
+		pTarget = static_cast<PlayerEntity *>(gWorldManager->FindEntityByClassName("Player2"));
 
 	if (pTarget != nullptr)
 	{
@@ -134,3 +136,34 @@ void Player1Entity::Update(f32 dt)
 	}
 }
 
+void Player1Entity::Attack()
+{
+	Log("%s: Attack", pTarget->GetClassName().c_str());
+	pTarget->OnDamage(b2Vec2(0, 0), 1);
+}
+
+bool Player1Entity::OnDamage(const b2Vec2 vec2Push, u32 amount)
+{
+	// Play damage sound
+	gSoundManager->Play(SND_DAMAGE);
+
+	pImpactFX->SetVisible(true);
+	pSprite->SetAnimation("SingleSlash");
+
+	// Create the ghost effect
+	if (fInvicibleTime > 0)
+		return false;
+
+	fInvicibleTime = 1.0f;
+	//pText->SetVisible(true);
+
+	// Receive the damage
+	u32 life = this->GetLife() - amount;
+
+	if ((int)life > 0)
+		this->SetLife(life);
+	else
+		gGameData->SetIsGameOver(true);
+
+	return true;
+}

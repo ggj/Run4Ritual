@@ -18,7 +18,6 @@ class DeathEntity: public SpriteEntity
 		vec3 GetPosition();
 		Sprite *GetSprite() const;
 
-		virtual void OnCollision(const CollisionEvent &event);
 		virtual void Activate();
 
 	private:
