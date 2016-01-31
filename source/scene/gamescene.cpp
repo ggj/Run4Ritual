@@ -53,6 +53,8 @@ GameScene::~GameScene()
 	pTilesetRealist->Release();
 	pTilesetPessimist->Release();
 	gScene = nullptr;
+
+	musTheme.Unload();
 }
 
 bool GameScene::Initialize()
@@ -257,12 +259,9 @@ void GameScene::OnJobCompleted(FileLoader *job)
 
 	if (gGameData->IsBgmEnabled() == true)
 	{
-		musThemeOptimist.Load("sounds/optimist_theme.ogg");
-		musThemeOptimist.SetVolume(1.0f);
-		musThemeRealist.Load("sounds/realist_theme.ogg");
-		musThemeRealist.SetVolume(1.0f);
-		musThemePessimist.Load("sounds/pessimist_theme.ogg");
-		musThemePessimist.SetVolume(1.0f);
+		musTheme.Load("sounds/optimist_theme.ogg");
+		musTheme.SetVolume(1.0f);
+		pSoundSystem->PlayMusic(&musTheme);
 	}
 
 	SceneNode *sounds = (SceneNode *)cScene.GetChildByName("Sounds");
@@ -310,7 +309,7 @@ void GameScene::OnJobCompleted(FileLoader *job)
 	if (pPlayer1 == nullptr)
 	{
 		pPlayer1 = pPlayer4;
-		musCur = &musThemeOptimist;
+		musCur = &musTheme;
 		gGui->SelectEnemy();
 		pSoundSystem->PlayMusic(musCur);
 	}
