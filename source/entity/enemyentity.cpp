@@ -262,7 +262,7 @@ String EnemyEntity::GetDisplayName() const
 
 void EnemyEntity::SetDisplayName(const String &displayName)
 {
-	gGui->SetEnemyName(displayName);
+	//gGui->SetEnemyName(displayName);
 }
 
 u32 EnemyEntity::GetLevel() const

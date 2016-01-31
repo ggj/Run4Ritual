@@ -306,15 +306,6 @@ void GuiManager::OnGuiEvent(Rocket::Core::Event &ev, const Rocket::Core::String 
 }
 
 // GUI Elements
-void GuiManager::SetPlayerName(const String &name)
-{
-	pElementPlayerName->SetInnerRML(Rocket::Core::String(name.c_str()));
-}
-
-void GuiManager::SetEnemyName(const String &name)
-{
-	pElementEnemyName->SetInnerRML(Rocket::Core::String(name.c_str()));
-}
 
 void GuiManager::SetDialog(const String &text)
 {

@@ -32,8 +32,6 @@ class GuiManager : public IRocketEventListener
 		bool LoadStackedGUI(const String &doc);
 		bool UnloadStackedGUI();
 
-		void SetPlayerName(const String &name);
-		void SetEnemyName(const String &name);
 		void SelectHero(const String &name);
 		void SelectEnemy(const String &hero = "", u32 enemyId = 0);
 		void SetDialog(const String &text);

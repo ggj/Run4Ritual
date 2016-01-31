@@ -117,7 +117,8 @@ OTHER_FILES_TEXTURE = \
 	resources/textures/uf_terrain.png \
 	resources/textures/uf_items.png \
 	resources/textures/uf_heroes.png \
-	resources/textures/uf_FX_impact.png
+	resources/textures/uf_FX_impact.png \
+	resources/textures/uf_interface.png \
 
 #Gui
 OTHER_FILES_GUI_STYLE = \
@@ -131,6 +132,7 @@ OTHER_FILES_GUI_VIEW = \
 	#Views
 	resources/gui/views/mainmenu.rml \
 	resources/gui/views/window.rml \
+	resources/gui/views/window2.rml \
 	resources/gui/views/gameplay.rml \
 	resources/gui/views/credits.rml \
 	resources/gui/views/options.rml \
